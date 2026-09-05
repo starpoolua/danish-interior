@@ -1,0 +1,1 @@
+.list{display:grid;grid-template-columns:repeat(1,1fr);row-gap:5rem}@media (min-width:1024px){.list{row-gap:5.875vw}.list--cols-2{-moz-column-gap:1.125vw;column-gap:1.125vw;grid-template-columns:repeat(2,1fr)}.list--cols-3{-moz-column-gap:.75vw;column-gap:.75vw;grid-template-columns:repeat(3,1fr)}}

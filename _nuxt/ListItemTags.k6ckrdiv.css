@@ -1,0 +1,1 @@
+.list-item-tags{-moz-column-gap:.8rem;column-gap:.8rem;display:flex;flex-wrap:wrap;justify-content:flex-start;row-gap:.8rem;z-index:1}@media (min-width:1024px){.list-item-tags{-moz-column-gap:.5vw;column-gap:.5vw;padding-bottom:.875vw;row-gap:.5vw}}.list-item-tags--abs{left:0;padding:.8rem;position:absolute;top:0}@media (min-width:1024px){.list-item-tags--abs{padding:.75vw}}

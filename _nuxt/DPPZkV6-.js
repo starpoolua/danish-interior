@@ -1,0 +1,1 @@
+import{a as e,y as s,b as a}from"./_Z-foxTM.js";const o={class:"asset-caption p4"},n={__name:"AssetCaption",props:{copy:{type:String,required:!0}},setup(t){return(c,p)=>(a(),e("figcaption",o,s(t.copy),1))}};export{n as default};

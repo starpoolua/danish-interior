@@ -1,0 +1,1 @@
+.marquee{overflow:hidden;padding-left:.8rem;padding-right:.8rem}@media (min-width:1024px){.marquee{padding-left:.75vw;padding-right:.75vw}}.marquee__wrapper{display:flex;width:-moz-fit-content;width:fit-content}@media (min-width:1024px){.marquee__wrapper{grid-column:1/span 9}}

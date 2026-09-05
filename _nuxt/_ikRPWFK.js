@@ -1,0 +1,1 @@
+import{a as r,f as s,ab as t,q as p,b as o}from"./_Z-foxTM.js";const c={class:"page-wrapper"},d={__name:"PageWrapper",props:{pageName:{type:String,required:!0}},setup(e){return(a,l)=>(o(),r("div",{class:p([`page--${e.pageName}`,"page"])},[s("div",c,[t(a.$slots,"default")])],2))}};export{d as default};

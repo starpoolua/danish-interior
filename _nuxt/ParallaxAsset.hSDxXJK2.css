@@ -1,0 +1,1 @@
+.parallax-asset{height:100%;overflow:hidden;width:100%}.parallax-asset--abs{left:0;position:absolute;top:0}.parallax-asset__wrapper{height:100%;left:0;position:relative;width:100%}@media (min-width:1024px){.parallax-asset__wrapper{height:110%;top:-5%}.parallax-asset--abs .parallax-asset__wrapper{position:absolute}}

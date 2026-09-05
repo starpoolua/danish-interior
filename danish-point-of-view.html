@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Danish Eye — Danish Interior</title>
+<style>
+@font-face{font-display:swap;font-family:OwnersWeb;font-style:normal;font-weight:600;src:url(fonts/Owners-Bold.woff) format("woff"),url(fonts/Owners-Bold.woff2) format("woff2")}
+@font-face{font-display:swap;font-family:SequelWeb;font-style:normal;font-weight:400;src:url(fonts/SequelSans-RomanHead.woff) format("woff"),url(fonts/SequelSans-RomanHead.woff2) format("woff2")}
+@font-face{font-display:swap;font-family:SequelWeb;font-style:normal;font-weight:500;src:url(fonts/SequelSans-SemiBoldHead.woff) format("woff"),url(fonts/SequelSans-SemiBoldHead.woff2) format("woff2")}
+@font-face{font-display:swap;font-family:RecklessWeb;font-style:normal;font-weight:400;src:url(fonts/RecklessNeue-Book.woff) format("woff"),url(fonts/RecklessNeue-Book.woff2) format("woff2")}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;color:#1c1c1c;font-family:SequelWeb,sans-serif;font-size:1.6rem;line-height:1.4;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.gutters{padding:0 .8rem}
+@media (min-width:1024px){.gutters{padding:0 .75vw}}
+
+/* header — logo / centered pill / + menu toggle, matching shed.design's real header layout */
+.dpov-header{align-items:center;background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(.6rem);backdrop-filter:blur(.6rem);color:#1c1c1c;display:flex;height:5.6rem;padding:0 .8rem;position:sticky;top:0;z-index:999}
+@media (min-width:1024px){.dpov-header{height:4.5vw;padding:0 .75vw}}
+.dpov-logo{font-family:OwnersWeb,sans-serif;font-size:2.4rem;font-weight:600;text-decoration:none;text-transform:uppercase}
+@media (min-width:1024px){.dpov-logo{font-size:1.6vw}}
+.pill.dpov-header__pill{display:none}
+@media (min-width:1024px){.pill.dpov-header__pill{display:inline-block;font-size:.75vw;left:50%;padding:.4vw 1vw;position:absolute;top:50%;transform:translate(-50%,-50%)}}
+.dpov-toggle{align-items:center;background:none;border:0;color:inherit;cursor:pointer;display:flex;font-family:SequelWeb,sans-serif;font-size:1.6rem;font-weight:500;letter-spacing:.01em;position:absolute;right:.8rem;text-transform:uppercase;top:50%;transform:translateY(-50%)}
+@media (min-width:1024px){.dpov-toggle{font-size:1.1vw;right:.75vw}}
+.dpov-toggle__icon{height:1.3rem;margin-right:.5rem;transition:transform .5s cubic-bezier(.16,1,.3,1);width:1.3rem}
+@media (min-width:1024px){.dpov-toggle__icon{height:1vw;margin-right:.4vw;width:1vw}}
+.dpov-toggle.is-open .dpov-toggle__icon{transform:rotate(45deg)}
+.dpov-toggle__label{display:inline-block}
+
+/* fullscreen nav overlay, opened by the header toggle */
+.dpov-nav{align-items:center;background:#fff;display:flex;flex-direction:column;height:100vh;height:100dvh;justify-content:center;left:0;gap:2rem;opacity:0;pointer-events:none;position:fixed;top:0;transform:translateY(-4%);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1),visibility 0s .6s;visibility:hidden;width:100%;z-index:900}
+@media (min-width:1024px){.dpov-nav{gap:1.2vw}}
+.dpov-nav.is-open{opacity:1;pointer-events:auto;transform:translateY(0);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);visibility:visible}
+.dpov-nav__link{color:#1c1c1c;font-family:OwnersWeb,sans-serif;font-size:3.4rem;font-weight:600;text-decoration:none;text-transform:uppercase;transition:opacity .3s}
+@media (min-width:1024px){.dpov-nav__link{font-size:2.4vw}}
+.dpov-nav__link:hover{opacity:.5}
+
+/* reveal utility */
+.reveal{opacity:0;transform:translateY(2.5rem);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+
+/* shed-style giant heading */
+.giant{font-family:OwnersWeb,sans-serif;font-size:5.2rem;font-weight:600;letter-spacing:-.02em;line-height:.92;text-transform:uppercase}
+@media (min-width:1024px){.giant{font-size:6.5vw}}
+.giant--tight{line-height:.88}
+
+/* section number tag e.g. "01. HERO" style label */
+.section-tag{display:inline-block;font-family:SequelWeb,sans-serif;font-size:1.3rem;font-weight:500;letter-spacing:.08em;margin-bottom:1.5rem;text-transform:uppercase}
+@media (min-width:1024px){.section-tag{font-size:.85vw;margin-bottom:1vw}}
+
+/* ============ 01 HERO ============ */
+.hero{padding:6rem 0 0;text-align:center}
+.hero__inner{padding:0 .8rem}
+@media (min-width:1024px){.hero__inner{padding:0 .75vw}.hero{padding-top:8vw}}
+.pill{border:.1rem solid currentColor;border-radius:3rem;display:inline-block;font-family:SequelWeb,sans-serif;font-size:1.3rem;font-weight:500;letter-spacing:.05em;padding:.7rem 1.6rem;text-transform:uppercase}
+@media (min-width:1024px){.pill{font-size:.8vw;padding:.5vw 1.2vw}}
+.hero__title{margin:2rem auto}
+@media (min-width:1024px){.hero__title{margin:1.5vw auto}}
+.hero__subtitle{font-family:RecklessWeb,serif;font-size:1.8rem;letter-spacing:-.01em;line-height:1.3;margin:0 auto;max-width:36rem}
+@media (min-width:1024px){.hero__subtitle{font-size:1.4vw;max-width:32vw}}
+.hero__sequence{aspect-ratio:16/9;background:#111;margin-top:3rem;overflow:hidden;position:relative;width:100%}
+@media (min-width:1024px){.hero__sequence{aspect-ratio:21/9;margin-top:3vw}}
+.hero__sequence img{height:100%;left:0;object-fit:cover;position:absolute;top:0;width:100%;animation:heroSeq 18s infinite}
+.hero__sequence img:nth-child(1){animation-delay:0s}
+.hero__sequence img:nth-child(2){animation-delay:-3s}
+.hero__sequence img:nth-child(3){animation-delay:-6s}
+.hero__sequence img:nth-child(4){animation-delay:-9s}
+.hero__sequence img:nth-child(5){animation-delay:-12s}
+.hero__sequence img:nth-child(6){animation-delay:-15s}
+@keyframes heroSeq{0%,2%{opacity:0}5%,14%{opacity:1}17%,100%{opacity:0}}
+
+/* ============ DADO composition (02 / 05) ============ */
+.dado{border-top:.1rem solid rgba(28,28,28,.15);padding-top:5rem;padding-bottom:5rem}
+@media (min-width:1024px){.dado{padding-top:6vw;padding-bottom:6vw}}
+.dado__lead{font-family:OwnersWeb,sans-serif;font-size:2.6rem;font-weight:600;letter-spacing:-.01em;line-height:1.15;margin-bottom:3rem;max-width:56rem;text-transform:uppercase}
+@media (min-width:1024px){.dado__lead{font-size:2.4vw;margin-bottom:3vw;max-width:60vw}}
+.dado__row{display:flex;flex-direction:column;gap:2rem}
+@media (min-width:1024px){.dado__row{gap:1.5vw}}
+.dado__meta{align-items:baseline;display:flex;gap:1.5rem}
+@media (min-width:1024px){.dado__meta{flex:0 0 20vw}}
+.dado__number{font-family:SequelWeb,sans-serif;font-size:1.6rem;font-weight:500}
+@media (min-width:1024px){.dado__number{font-size:1vw}}
+.dado__label{font-family:RecklessWeb,serif;font-size:1.8rem;letter-spacing:-.01em}
+@media (min-width:1024px){.dado__label{font-size:1.4vw}}
+.dado__cols{display:flex;flex-direction:column;gap:2.5rem}
+@media (min-width:1024px){.dado__cols{flex:1;flex-direction:row;gap:3vw}}
+.dado__col{font-family:SequelWeb,sans-serif;font-size:1.6rem;line-height:1.55}
+@media (min-width:1024px){.dado__col{flex:1;font-size:1vw;max-width:26vw}}
+
+/* ============ 03 WINDOWS ============ */
+.windows{background:#f4f2ee;padding-top:6rem;padding-bottom:6rem}
+@media (min-width:1024px){.windows{padding-top:8vw;padding-bottom:8vw}}
+.windows__title{margin-bottom:3rem}
+@media (min-width:1024px){.windows__title{margin-bottom:2.5vw}}
+.windows__gallery{display:grid;gap:.8rem;grid-template-columns:1fr;margin-bottom:4rem}
+@media (min-width:768px){.windows__gallery{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1024px){.windows__gallery{gap:.75vw;margin-bottom:4vw}}
+.windows__gallery img{aspect-ratio:3/4;height:100%;object-fit:cover;width:100%}
+.windows__body{font-family:SequelWeb,sans-serif;font-size:1.6rem;line-height:1.55;max-width:52rem;text-align:justify}
+@media (min-width:1024px){.windows__body{font-size:1vw;max-width:46vw}}
+.windows__body p{margin-bottom:0}
+.windows__final{font-family:OwnersWeb,sans-serif;font-size:2.6rem;font-weight:600;letter-spacing:-.01em;line-height:1.15;margin-top:3rem;max-width:52rem;text-transform:uppercase}
+@media (min-width:1024px){.windows__final{font-size:2.4vw;margin-top:3vw;max-width:50vw}}
+
+/* ============ 04 WHAT I LEARNED TO SEE ============ */
+.learn{padding-top:6rem;padding-bottom:6rem}
+@media (min-width:1024px){.learn{padding-top:8vw;padding-bottom:8vw}}
+.learn__title{margin-bottom:4rem}
+@media (min-width:1024px){.learn__title{margin-bottom:3vw}}
+.learn__item{align-items:center;border-top:.1rem solid rgba(28,28,28,.15);display:flex;flex-direction:column;gap:2rem;padding:3rem 0}
+@media (min-width:1024px){.learn__item{flex-direction:row;gap:3vw;padding:2.5vw 0}}
+.learn__item:last-child{border-bottom:.1rem solid rgba(28,28,28,.15)}
+.learn__word-wrap{flex:0 0 auto}
+@media (min-width:1024px){.learn__word-wrap{width:34vw}}
+.learn__word{font-family:OwnersWeb,sans-serif;font-size:4.2rem;font-weight:600;letter-spacing:-.02em;line-height:.9;text-transform:uppercase}
+@media (min-width:1024px){.learn__word{font-size:4.5vw}}
+.learn__word-sub{color:rgba(28,28,28,.55);display:block;font-family:SequelWeb,sans-serif;font-size:1.3rem;font-weight:500;letter-spacing:.08em;margin-top:1.2rem;text-transform:uppercase}
+@media (min-width:1024px){.learn__word-sub{font-size:.85vw;margin-top:1vw}}
+.learn__copy{flex:1;font-family:SequelWeb,sans-serif;font-size:1.6rem;line-height:1.55}
+@media (min-width:1024px){.learn__copy{font-size:1vw;max-width:22vw}}
+.learn__photo{aspect-ratio:4/3;flex:0 0 auto;overflow:hidden;width:100%}
+@media (min-width:1024px){.learn__photo{width:20vw}}
+.learn__photo img{height:100%;object-fit:cover;width:100%}
+
+/* ============ 05 DADO reuse handled above ============ */
+.dado__final{font-family:OwnersWeb,sans-serif;font-size:2.4rem;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin-top:3rem;text-transform:uppercase}
+@media (min-width:1024px){.dado__final{font-size:2.2vw;margin-top:2.5vw}}
+
+/* ============ 06 FROM BEDDING TO LIGHT ============ */
+.bedding{background:#0f00b0;color:#fff;padding-top:6rem;padding-bottom:6rem}
+@media (min-width:1024px){.bedding{padding-top:8vw;padding-bottom:8vw}}
+.bedding__title{margin-bottom:3rem}
+@media (min-width:1024px){.bedding__title{margin-bottom:2.5vw}}
+.bedding__body{font-family:SequelWeb,sans-serif;font-size:1.6rem;line-height:1.55;max-width:48rem;text-align:justify}
+@media (min-width:1024px){.bedding__body{font-size:1vw;max-width:42vw}}
+.bedding__body p{margin-bottom:1.4rem}
+.bedding__tags{display:flex;flex-wrap:wrap;gap:1rem;margin-top:4rem}
+@media (min-width:1024px){.bedding__tags{gap:.75vw;margin-top:3.5vw}}
+.bedding__tag{border:.1rem solid rgba(255,255,255,.4);border-radius:3rem;font-family:SequelWeb,sans-serif;font-size:1.4rem;font-weight:500;letter-spacing:.03em;padding:.9rem 1.8rem;text-transform:uppercase}
+@media (min-width:1024px){.bedding__tag{font-size:.85vw;padding:.6vw 1.4vw}}
+.bedding__link{border-bottom:.1rem solid #fff;display:inline-block;font-family:SequelWeb,sans-serif;font-size:1.6rem;font-weight:500;letter-spacing:.03em;margin-top:4rem;text-transform:uppercase;transition:opacity .3s}
+@media (min-width:1024px){.bedding__link{font-size:1.1vw;margin-top:3.5vw}}
+.bedding__link:hover{opacity:.6}
+
+/* ============ 07 FINAL ============ */
+.final{padding-top:6rem;padding-bottom:8rem}
+@media (min-width:1024px){.final{padding-top:8vw;padding-bottom:10vw}}
+.final__title{margin-bottom:3rem}
+@media (min-width:1024px){.final__title{margin-bottom:2.5vw}}
+.final__body{font-family:SequelWeb,sans-serif;font-size:1.6rem;line-height:1.55;margin-bottom:4rem;max-width:48rem;text-align:justify}
+@media (min-width:1024px){.final__body{font-size:1vw;margin-bottom:3vw;max-width:42vw}}
+.final__prices{border-top:.1rem solid rgba(28,28,28,.15);display:flex;flex-direction:column}
+@media (min-width:1024px){.final__prices{flex-direction:row}}
+.final__price{align-items:baseline;border-bottom:.1rem solid rgba(28,28,28,.15);display:flex;justify-content:space-between;font-family:SequelWeb,sans-serif;font-size:1.8rem;font-weight:500;padding:1.8rem 0;text-transform:uppercase}
+@media (min-width:1024px){.final__price{border-bottom:0;border-right:.1rem solid rgba(28,28,28,.15);flex:1;flex-direction:column;font-size:1.1vw;gap:1vw;padding:2vw}}
+.final__price:last-child{border-right:0}
+.final__price b{font-family:OwnersWeb,sans-serif;font-size:2rem;font-weight:600}
+@media (min-width:1024px){.final__price b{font-size:1.6vw}}
+.final__cta{display:inline-block;font-family:OwnersWeb,sans-serif;font-size:2.4rem;font-weight:600;letter-spacing:-.01em;margin-top:4rem;text-decoration:underline;text-underline-offset:.3rem;text-transform:uppercase;transition:opacity .3s}
+@media (min-width:1024px){.final__cta{font-size:2vw;margin-top:3.5vw}}
+.final__cta:hover{opacity:.6}
+
+/* ============ custom cursor ============
+   Mirrors shed.design's real .cursor mechanic: the system pointer stays
+   untouched (cursor:auto / pointer on links, exactly like the reference) —
+   this decorative circle only appears ON TOP of it, and only while hovering
+   an "explorable" element (photo, project link). At rest it is scaled to 0. */
+.custom-cursor{align-items:center;background:#0f00b0;border-radius:50%;color:#fff;display:none;font-family:SequelWeb,sans-serif;font-size:.85rem;font-weight:500;height:4rem;justify-content:center;left:0;letter-spacing:.02em;pointer-events:none;position:fixed;text-align:center;text-transform:uppercase;top:0;transform:translate(-50%,-50%) scale(0);transition:transform .35s cubic-bezier(.16,1,.3,1);width:4rem;z-index:9999}
+@media (hover:hover){.custom-cursor{display:flex}}
+.custom-cursor--visible{transform:translate(-50%,-50%) scale(1)}
+</style>
+</head>
+<body>
+
+<div class="custom-cursor" id="cursor"><span id="cursorLabel"></span></div>
+
+<header class="dpov-header">
+  <a href="index.html" class="dpov-logo">Shed.</a>
+  <span class="pill dpov-header__pill">Danish Point of View</span>
+  <button type="button" class="dpov-toggle" id="navToggle" aria-label="Відкрити навігацію" aria-expanded="false">
+    <svg class="dpov-toggle__icon" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" stroke-width="1.2" d="M19 9.5H0M9.5 19V0"/></svg>
+    <span class="dpov-toggle__label" id="navToggleLabel">МЕНЮ</span>
+  </button>
+</header>
+
+<nav class="dpov-nav" id="dpovNav">
+  <a href="index.html" class="dpov-nav__link">ГОЛОВНА</a>
+  <a href="index.html#services" class="dpov-nav__link">ПОСЛУГИ</a>
+  <a href="index.html#work" class="dpov-nav__link">ПРОЄКТИ</a>
+  <a href="index.html#contact" class="dpov-nav__link">КОНТАКТИ</a>
+</nav>
+
+<!-- 01. HERO -->
+<section class="hero">
+  <div class="hero__inner">
+    <h1 class="giant hero__title reveal">DANISH EYE</h1>
+    <p class="hero__subtitle reveal">Чотири роки життя в Данії — і погляд на інтер’єр, який неможливо зібрати лише зі збережених фотографій.</p>
+  </div>
+  <div class="hero__sequence reveal">
+    <img src="images/intro-01.jpg" alt="">
+    <img src="images/intro-04.jpg" alt="">
+    <img src="images/hero-01.jpg" alt="">
+    <img src="images/service-01.jpg" alt="">
+    <img src="images/intro-05.jpg" alt="">
+    <img src="images/hero-03.jpg" alt="">
+  </div>
+</section>
+
+<!-- 02. NOT A STYLE -->
+<section class="dado gutters">
+  <span class="section-tag reveal">Not a Style</span>
+  <p class="dado__lead reveal">Данський інтер’єр — це не стиль, який можна повторити за фотографією.</p>
+  <div class="dado__row reveal">
+    <div class="dado__cols">
+      <p class="dado__col">Він не починається з білих стін, дерев’яного стільця чи дизайнерської лампи. І не закінчується вибором правильного дивана. Данський дім складається з того, як людина проживає простір щодня: де вона п’є каву, яке світло вмикає ввечері, що бачить, прокидаючись, і які речі залишає навколо себе.</p>
+      <p class="dado__col">Саме тому два інтер’єри з однаковими меблями можуть відчуватися абсолютно по-різному. Атмосферу створюють пропорції, світло, порожній простір, колір, текстури й маленькі повсякденні речі — те, як усе це працює разом.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03. THE WINDOWS -->
+<section class="windows gutters">
+  <h2 class="giant windows__title reveal">THE<br>WINDOWS</h2>
+  <div class="windows__gallery reveal">
+    <img src="images/intro-01.jpg" alt="">
+    <img src="images/4-years-in-denmark.jpg" alt="">
+    <img src="images/4-years-portrait.png" alt="">
+  </div>
+  <div class="windows__body reveal">
+    <p>Я довго ловила себе на тому, що заглядаю у відкриті датські вікна. Не через цікавість до чужого життя. Мене захоплювали маленькі композиції, які датчани ніби залишають місту напоказ: лампа біля крісла, книги на кухні, кераміка, квіти, світло над столом.</p>
+    <p>Спочатку я просто дивилась. Потім почала помічати, що в абсолютно різних домівках повторюються ті самі закономірності. Світло ніколи не існує окремо від меблів. Предмети не розставлені випадково. Порожній простір має таку саму вагу, як речі. А дім виглядає красивим саме тому, що в ньому видно життя.</p>
+  </div>
+  <p class="windows__final reveal">Я почала бачити систему там, де раніше бачила просто красиву картинку.</p>
+</section>
+
+<!-- 04. WHAT I LEARNED TO SEE -->
+<section class="learn gutters">
+  <h2 class="giant learn__title reveal">ЩО Я НАВЧИЛАСЬ<br>БАЧИТИ</h2>
+
+  <div class="learn__item reveal">
+    <div class="learn__word-wrap">
+      <h3 class="learn__word">Light</h3>
+      <span class="learn__word-sub">Світло</span>
+    </div>
+    <p class="learn__copy">Світло створює не яскравість, а атмосферу й сценарії життя.</p>
+    <figure class="learn__photo"><img src="images/intro-04.jpg" alt=""></figure>
+  </div>
+  <div class="learn__item reveal">
+    <div class="learn__word-wrap">
+      <h3 class="learn__word">Proportion</h3>
+      <span class="learn__word-sub">Пропорція</span>
+    </div>
+    <p class="learn__copy">Правильний предмет неправильного масштабу може зруйнувати всю кімнату.</p>
+    <figure class="learn__photo"><img src="images/hero-03.jpg" alt=""></figure>
+  </div>
+  <div class="learn__item reveal">
+    <div class="learn__word-wrap">
+      <h3 class="learn__word">Empty Space</h3>
+      <span class="learn__word-sub">Порожній простір</span>
+    </div>
+    <p class="learn__copy">Не кожне місце потрібно заповнювати. Порожнеча дає інтер’єру повітря.</p>
+    <figure class="learn__photo"><img src="images/hero-02.jpg" alt=""></figure>
+  </div>
+  <div class="learn__item reveal">
+    <div class="learn__word-wrap">
+      <h3 class="learn__word">Everyday Objects</h3>
+      <span class="learn__word-sub">Щоденні речі</span>
+    </div>
+    <p class="learn__copy">Речі, якими ми користуємося щодня, теж формують інтер’єр: постіль, полотенце у ванній, кухонний текстиль, чашки, ваза, книги, кавомашина.</p>
+    <figure class="learn__photo"><img src="images/service-01.jpg" alt=""></figure>
+  </div>
+  <div class="learn__item reveal">
+    <div class="learn__word-wrap">
+      <h3 class="learn__word">Rituals</h3>
+      <span class="learn__word-sub">Ритуали</span>
+    </div>
+    <p class="learn__copy">Кавова зона, місце для читання чи світло біля ліжка перетворюють простір на особистий сценарій життя.</p>
+    <figure class="learn__photo"><img src="images/intro-03.jpg" alt=""></figure>
+  </div>
+</section>
+
+<!-- 05. FOUR YEARS IN DENMARK -->
+<section class="dado gutters">
+  <div class="dado__row reveal">
+    <div class="dado__meta">
+      <span class="dado__label">Four Years in Denmark</span>
+    </div>
+    <div class="dado__cols">
+      <p class="dado__col">Чотири роки життя в Данії дали мені можливість бачити цей дизайн не в Pinterest, а в реальному житті. У квартирах, кафе, готелях, магазинах, шоурумах — у тому, як простір виглядає вранці, увечері та взимку, коли світло стає особливо важливим.</p>
+      <p class="dado__col">Three Days of Design, шоуруми та презентації нових колекцій поступово формували мій смак і професійну насмотреність. Я стежила за тим, як дизайнери працюють зі світлом, кольором, текстилем, меблями й речами щоденного користування — і збирала власний список брендів та предметів, до яких хочу повертатися у своїх концепціях.</p>
+    </div>
+  </div>
+  <p class="dado__final reveal">Це не стилізація під Данію. Це досвід життя всередині неї.</p>
+</section>
+
+<!-- 06. FROM BEDDING TO LIGHT -->
+<section class="bedding gutters">
+  <h2 class="giant bedding__title reveal">FROM BEDDING<br>TO LIGHT</h2>
+  <div class="bedding__body reveal">
+    <p>Для нас інтер’єр не закінчується на меблях.</p>
+    <p>Постіль займає значну частину спальні. Рушник у ванній щодня знаходиться поруч із плиткою, змішувачем і світлом. Кухонний текстиль, чашки та кавомашина формують ранкову картинку дому.</p>
+    <p>Тому ми працюємо не лише з диванами, столами й кріслами. Ми дивимося на весь візуальний світ вашого дому — від світильника до постільної білизни й рушника для рук.</p>
+  </div>
+  <div class="bedding__tags reveal">
+    <span class="bedding__tag">Lighting</span>
+    <span class="bedding__tag">Furniture</span>
+    <span class="bedding__tag">Bedding</span>
+    <span class="bedding__tag">Bath Towels</span>
+    <span class="bedding__tag">Kitchen Textiles</span>
+    <span class="bedding__tag">Tableware</span>
+    <span class="bedding__tag">Art</span>
+    <span class="bedding__tag">Objects</span>
+  </div>
+  <a href="index.html#selected-brands" class="bedding__link reveal">Selected Brands →</a>
+</section>
+
+<!-- 07. YOUR ROOM, RESET -->
+<section class="final gutters">
+  <h2 class="giant final__title reveal">YOUR ROOM<br>RESET.</h2>
+  <div class="final__body reveal">
+    <p>Усі ці спостереження мають сенс лише тоді, коли вони можуть працювати у реальному домі.</p>
+    <p>DANISH INTERIOR переносить цей погляд у ваш існуючий простір і створює готову візуальну концепцію — без необхідності починати новий ремонт.</p>
+  </div>
+  <div class="final__prices reveal">
+    <div class="final__price"><span>Hygge Corner</span><b>від $200</b></div>
+    <div class="final__price"><span>Room Reset</span><b>$500</b></div>
+    <div class="final__price"><span>Room Reset + Sourcing</span><b>$800–900</b></div>
+  </div>
+  <a href="contact.html" class="final__cta reveal">Показати мій простір →</a>
+</section>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('is-visible'); io.unobserve(en.target); }
+    });
+  }, {threshold:.15});
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* custom smooth-follow cursor, matching Shed's own mechanic (lerp factor .1) */
+(function(){
+  var cursor = document.getElementById('cursor');
+  var label = document.getElementById('cursorLabel');
+  if(!cursor) return;
+  var mx = window.innerWidth/2, my = window.innerHeight/2;
+  var cx = mx, cy = my;
+  var LERP = .1;
+  window.addEventListener('mousemove', function(e){ mx = e.clientX; my = e.clientY; });
+  function tick(){
+    cx += (mx-cx)*LERP;
+    cy += (my-cy)*LERP;
+    cursor.style.left = cx+'px';
+    cursor.style.top = cy+'px';
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  var targets = document.querySelectorAll('a, .hero__sequence, .learn__photo, .windows__gallery img');
+  targets.forEach(function(el){
+    var text = el.tagName === 'A' ? 'View' : 'Explore';
+    el.addEventListener('mouseenter', function(){
+      cursor.classList.add('custom-cursor--visible');
+      label.textContent = text;
+    });
+    el.addEventListener('mouseleave', function(){
+      cursor.classList.remove('custom-cursor--visible');
+      label.textContent = '';
+    });
+  });
+})();
+
+/* + MENU toggle -> fullscreen nav overlay, same "МЕНЮ"/"ЗАКРИТИ" + icon-rotate pattern as index.html */
+(function(){
+  var toggle = document.getElementById('navToggle');
+  var toggleLabel = document.getElementById('navToggleLabel');
+  var nav = document.getElementById('dpovNav');
+  if(!toggle || !nav) return;
+  var open = false;
+  toggle.addEventListener('click', function(){
+    open = !open;
+    toggle.classList.toggle('is-open', open);
+    nav.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggleLabel.textContent = open ? 'ЗАКРИТИ' : 'МЕНЮ';
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  nav.querySelectorAll('.dpov-nav__link').forEach(function(link){
+    link.addEventListener('click', function(){
+      open = false;
+      toggle.classList.remove('is-open');
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggleLabel.textContent = 'МЕНЮ';
+      document.body.style.overflow = '';
+    });
+  });
+})();
+</script>
+</body>
+</html>

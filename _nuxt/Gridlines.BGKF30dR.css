@@ -1,0 +1,1 @@
+.gridlines{bottom:0;display:none;left:0;pointer-events:none;position:fixed;right:0;top:0;width:auto;z-index:9999}.gridlines--visible{display:grid}.gridlines div{height:100%}.gridlines div:nth-child(odd){background-color:#7fff0033}.gridlines div:nth-child(2n){background-color:#7fff001a}
