@@ -164,6 +164,48 @@ a{color:inherit}
 @media (min-width:1024px){.final__cta{font-size:2vw;margin-top:3.5vw}}
 .final__cta:hover{opacity:.6}
 
+/* packages, transplanted from the homepage's "Пакети та ціни" section,
+   rebuilt with this page's own (Nuxt-free) class system */
+.final__packages{border-top:.1rem solid rgba(28,28,28,.15);display:flex;flex-direction:column}
+@media (min-width:1024px){.final__packages{flex-direction:row;column-gap:2vw}}
+.pkg-card{border-bottom:.1rem solid rgba(28,28,28,.15);padding:2.4rem 0;display:flex;flex-direction:column}
+@media (min-width:1024px){.pkg-card{flex:1;border-bottom:0;border-right:.1rem solid rgba(28,28,28,.15);padding:0 2vw}}
+.pkg-card:last-child{border-bottom:0}
+@media (min-width:1024px){.pkg-card:last-child{border-right:0;padding-right:0}.pkg-card:first-child{padding-left:0}}
+.pkg-card__fig{position:relative;aspect-ratio:4/3;overflow:hidden;margin-bottom:1.6rem}
+@media (min-width:1024px){.pkg-card__fig{margin-bottom:1.2vw}}
+.pkg-card__fig img{width:100%;height:100%;object-fit:cover}
+.pkg-card__price{position:absolute;left:1rem;bottom:1rem;background:#1c1c1c;color:#fffbef;border-radius:3rem;font-family:SequelWeb,sans-serif;font-size:1.3rem;font-weight:500;letter-spacing:.05em;padding:.7rem 1.6rem;text-transform:uppercase}
+@media (min-width:1024px){.pkg-card__price{font-size:.8vw;padding:.5vw 1.2vw;left:.8vw;bottom:.8vw}}
+.pkg-card__title{font-family:OwnersWeb,sans-serif;font-weight:700;font-size:1.5rem;text-transform:uppercase}
+@media (min-width:1024px){.pkg-card__title{font-size:1.125vw}}
+.pkg-card__excerpt{font-family:SequelWeb,sans-serif;font-size:1.4rem;color:rgba(28,28,28,.65);margin-top:.6rem}
+@media (min-width:1024px){.pkg-card__excerpt{font-size:.9vw;margin-top:.5vw}}
+.pkg-card__toggle{align-items:center;background:none;border:0;cursor:pointer;display:flex;justify-content:space-between;width:100%;font-family:SequelWeb,sans-serif;font-size:1.4rem;font-weight:500;letter-spacing:.03em;padding:1.6rem 0;text-transform:uppercase;color:inherit}
+@media (min-width:1024px){.pkg-card__toggle{font-size:.85vw;padding:1.1vw 0}}
+.pkg-card__toggle-icon{transition:transform .3s;font-size:1.6rem}
+@media (min-width:1024px){.pkg-card__toggle-icon{font-size:1vw}}
+.pkg-card--open .pkg-card__toggle-icon{transform:rotate(45deg)}
+.pkg-card__panel{overflow:hidden;height:0;transition:height .4s cubic-bezier(.16,1,.3,1)}
+.pkg-card__copy{font-family:RecklessWeb,serif;font-size:1.5rem;line-height:1.35;text-align:justify;padding-top:.4rem}
+@media (min-width:1024px){.pkg-card__copy{font-size:1vw}}
+.pkg-card__included{font-family:SequelWeb,sans-serif;font-size:1.3rem;color:rgba(28,28,28,.65);line-height:1.5;margin-top:1.6rem}
+@media (min-width:1024px){.pkg-card__included{font-size:.8vw;margin-top:1.1vw}}
+.pkg-card__included span{display:block;font-family:OwnersWeb,sans-serif;font-weight:600;font-size:1.1rem;letter-spacing:.05em;text-transform:uppercase;color:#1c1c1c;margin-bottom:.5rem}
+@media (min-width:1024px){.pkg-card__included span{font-size:.7vw;margin-bottom:.4vw}}
+.pkg-card__cta{display:inline-flex;align-items:center;height:4.4rem;margin-top:2rem;font-family:SequelWeb,sans-serif;font-size:1.6rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase;text-decoration:underline;text-underline-offset:.25em;transition:opacity .3s}
+@media (min-width:1024px){.pkg-card__cta{font-size:.9vw;height:3vw;margin-top:1.3vw}}
+.pkg-card__cta:hover{opacity:.6}
+.pkg-unsure{border-top:.1rem solid rgba(28,28,28,.15);margin-top:4rem;padding-top:4rem;text-align:center}
+@media (min-width:1024px){.pkg-unsure{margin-top:3vw;padding-top:3vw}}
+.pkg-unsure__title{font-family:OwnersWeb,sans-serif;font-size:2.2rem;font-weight:600;letter-spacing:-.01em}
+@media (min-width:1024px){.pkg-unsure__title{font-size:1.8vw}}
+.pkg-unsure__text{font-family:SequelWeb,sans-serif;font-size:1.5rem;color:rgba(28,28,28,.65);margin-top:.8rem}
+@media (min-width:1024px){.pkg-unsure__text{font-size:1vw}}
+.pkg-unsure__cta{display:inline-flex;font-family:SequelWeb,sans-serif;font-size:1.6rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase;text-decoration:underline;text-underline-offset:.25em;margin-top:2rem;transition:opacity .3s}
+@media (min-width:1024px){.pkg-unsure__cta{font-size:1vw;margin-top:1.4vw}}
+.pkg-unsure__cta:hover{opacity:.6}
+
 /* ============ custom cursor ============
    Mirrors shed.design's real .cursor mechanic: the system pointer stays
    untouched (cursor:auto / pointer on links, exactly like the reference) —
@@ -325,12 +367,52 @@ a{color:inherit}
     <p>Усі ці спостереження мають сенс лише тоді, коли вони можуть працювати у реальному домі.</p>
     <p>DANISH INTERIOR переносить цей погляд у ваш існуючий простір і створює готову візуальну концепцію — без необхідності починати новий ремонт.</p>
   </div>
-  <div class="final__prices reveal">
-    <div class="final__price"><span>Hygge Corner</span><b>від $200</b></div>
-    <div class="final__price"><span>Room Reset</span><b>$500</b></div>
-    <div class="final__price"><span>Room Reset + Sourcing</span><b>$800–900</b></div>
+  <div class="final__packages reveal">
+    <div class="pkg-card">
+      <figure class="pkg-card__fig"><img src="images/service-light.jpg" alt=""><span class="pkg-card__price">від $200</span></figure>
+      <p class="pkg-card__title">Hygge Corner</p>
+      <p class="pkg-card__excerpt">Одна завершена зона — біля ліжка, для читання, роботи чи ранкової кави.</p>
+      <button type="button" class="pkg-card__toggle" aria-expanded="false">Детальніше <span class="pkg-card__toggle-icon">+</span></button>
+      <div class="pkg-card__panel">
+        <div>
+          <p class="pkg-card__copy">Ваше особливе місце в домі. Створюємо завершену зону — біля ліжка, для читання, роботи або ранкової кави. Світло, текстиль, меблі й аксесуари збираємо так, щоб простір відчувався теплим, особистим і по-датськи затишним. Наче кадр із ваших збережених — тільки тепер він у вашому домі.</p>
+          <p class="pkg-card__included"><span>Що входить</span>візуальна концепція зони · світло · меблі · текстиль · арт та аксесуари · композиція</p>
+          <a href="contact.html" class="pkg-card__cta">Обрати цей пакет →</a>
+        </div>
+      </div>
+    </div>
+    <div class="pkg-card">
+      <figure class="pkg-card__fig"><img src="images/minimalist-2.jpg" alt=""><span class="pkg-card__price">$500</span></figure>
+      <p class="pkg-card__title">Room Reset</p>
+      <p class="pkg-card__excerpt">Готовий візуальний концепт однієї кімнати без нового ремонту.</p>
+      <button type="button" class="pkg-card__toggle" aria-expanded="false">Детальніше <span class="pkg-card__toggle-icon">+</span></button>
+      <div class="pkg-card__panel">
+        <div>
+          <p class="pkg-card__copy">Створюємо цілісний образ усієї кімнати. Опрацьовуємо кожну зону — сон, відпочинок, читання, роботу — і пов’язуємо їх світлом, кольором, пропорціями, текстилем та деталями. Не набір красивих речей, а те саме відчуття, заради якого ви роками зберігали чужі інтер’єри.</p>
+          <p class="pkg-card__included"><span>Що входить</span>концепція всієї кімнати · усі функціональні зони · світло й колір · меблі · текстиль · арт · пропорції та візуальний баланс</p>
+          <a href="contact.html" class="pkg-card__cta">Обрати цей пакет →</a>
+        </div>
+      </div>
+    </div>
+    <div class="pkg-card">
+      <figure class="pkg-card__fig"><img src="images/warm-2.jpg" alt=""><span class="pkg-card__price">$800–900</span></figure>
+      <p class="pkg-card__title">Room Reset + Sourcing</p>
+      <p class="pkg-card__excerpt">Концепт кімнати + точний підбір речей для її реалізації.</p>
+      <button type="button" class="pkg-card__toggle" aria-expanded="false">Детальніше <span class="pkg-card__toggle-icon">+</span></button>
+      <div class="pkg-card__panel">
+        <div>
+          <p class="pkg-card__copy">Створити концепцію — лише частина роботи. Знайти саме ту лампу, постіль, крісло чи килим, які підтримають її за стилем, масштабом, кольором і матеріалом, — окремий етап. Ми шукаємо не «щось схоже», а речі, з яких справді складається задуманий інтер’єр.</p>
+          <p class="pkg-card__included"><span>Що входить</span>концепт кімнати · конкретні меблі та світло · постіль і текстиль · килими · арт та аксесуари · бренди · моделі · розміри · посилання на покупку</p>
+          <a href="contact.html" class="pkg-card__cta">Обрати цей пакет →</a>
+        </div>
+      </div>
+    </div>
   </div>
-  <a href="contact.html" class="final__cta reveal">Показати мій простір →</a>
+  <div class="pkg-unsure reveal">
+    <h3 class="pkg-unsure__title">Не впевнені, який пакет обрати?</h3>
+    <p class="pkg-unsure__text">Покажіть нам свій простір — ми підкажемо.</p>
+    <a href="contact.html" class="pkg-unsure__cta">Обговорити проєкт →</a>
+  </div>
 </section>
 
 <script>
@@ -342,6 +424,34 @@ a{color:inherit}
     });
   }, {threshold:.15});
   els.forEach(function(el){ io.observe(el); });
+})();
+
+/* packages accordion — single-open, smooth height (same behaviour as index.html) */
+(function(){
+  var cards = document.querySelectorAll('.pkg-card');
+  function closeCard(card){
+    card.classList.remove('pkg-card--open');
+    card.querySelector('.pkg-card__panel').style.height = '';
+    card.querySelector('.pkg-card__toggle').setAttribute('aria-expanded', 'false');
+  }
+  function openCard(card){
+    card.classList.add('pkg-card--open');
+    var panel = card.querySelector('.pkg-card__panel');
+    panel.style.height = panel.firstElementChild.getBoundingClientRect().height + 'px';
+    card.querySelector('.pkg-card__toggle').setAttribute('aria-expanded', 'true');
+  }
+  cards.forEach(function(card){
+    card.querySelector('.pkg-card__toggle').addEventListener('click', function(){
+      var willOpen = !card.classList.contains('pkg-card--open');
+      cards.forEach(function(other){ if(other !== card) closeCard(other); });
+      if(willOpen){ openCard(card); } else { closeCard(card); }
+    });
+  });
+  window.addEventListener('resize', function(){
+    document.querySelectorAll('.pkg-card--open').forEach(function(card){
+      card.querySelector('.pkg-card__panel').style.height = card.querySelector('.pkg-card__panel').firstElementChild.getBoundingClientRect().height + 'px';
+    });
+  });
 })();
 
 /* custom smooth-follow cursor, matching Shed's own mechanic (lerp factor .1) */
