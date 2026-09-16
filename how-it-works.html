@@ -54,14 +54,24 @@ a{color:inherit}
 .hiw-hero__title{font-family:OwnersWeb,sans-serif;font-size:6.4rem;font-weight:600;letter-spacing:-.02em;line-height:.88;text-transform:uppercase}
 @media (min-width:1024px){.hiw-hero__title{font-size:7vw}}
 
-/* ============ 02. INTRO ============ */
-.hiw-intro{padding-top:2rem;padding-bottom:8rem;text-align:center}
-@media (min-width:1024px){.hiw-intro{padding-top:1vw;padding-bottom:9vw}}
-.hiw-intro .section-tag{display:block}
-.hiw-intro__lead{font-family:OwnersWeb,sans-serif;font-size:3rem;font-weight:600;letter-spacing:-.01em;line-height:1.12;margin:0 auto 3rem;max-width:66rem;text-transform:uppercase}
-@media (min-width:1024px){.hiw-intro__lead{font-size:3vw;margin-bottom:2.2vw;max-width:56vw}}
-.hiw-intro__sub{font-family:RecklessWeb,serif;font-size:1.8rem;letter-spacing:-.01em;line-height:1.4;margin:0 auto;max-width:52rem}
-@media (min-width:1024px){.hiw-intro__sub{font-size:1.4vw;max-width:38vw}}
+/* ============ 02. VIDEO HERO — two panels, matches shed.design/services'
+   full-bleed 1600/910 hero video block (real <video> tags land here later) ============ */
+.hiw-video-hero{aspect-ratio:1600/910;display:flex;overflow:hidden;width:100%}
+.hiw-video-hero__panel{flex:1;min-width:0;overflow:hidden;position:relative}
+.hiw-video-hero__panel img{height:100%;object-fit:cover;width:100%}
+@media (max-width:767px){.hiw-video-hero{aspect-ratio:auto;flex-direction:column;height:auto}.hiw-video-hero__panel{aspect-ratio:4/5}}
+
+/* ============ 03. INTRO — copy matches shed.design/services' .services-intro exactly:
+   font, weight, size, letter-spacing, line-height and margins taken from their CSS ============ */
+.hiw-intro{padding-top:0;padding-bottom:8rem;text-align:left}
+@media (min-width:1024px){.hiw-intro{padding-bottom:9vw}}
+.hiw-intro__title{margin-top:1.2rem}
+@media (min-width:1024px){.hiw-intro__title{margin-top:.75vw}}
+.hiw-intro .section-tag{display:block;margin-bottom:0}
+.hiw-intro__lead{font-family:SequelWeb,sans-serif;font-size:2.7rem;font-weight:500;letter-spacing:-.02em;line-height:1;margin-top:10rem;max-width:66rem}
+@media (min-width:1024px){.hiw-intro__lead{font-size:3.75vw;margin-top:10.5625vw;max-width:90.0625vw}}
+.hiw-intro__sub{font-family:RecklessWeb,serif;font-size:1.8rem;letter-spacing:-.01em;line-height:1.4;margin-top:3rem;max-width:52rem}
+@media (min-width:1024px){.hiw-intro__sub{font-size:1.4vw;margin-top:2.2vw;max-width:38vw}}
 
 /* ============ 03. INTERACTIVE PROCESS ============ */
 .hiw-process{border-top:.1rem solid rgba(28,28,28,.15);padding-top:6rem;padding-bottom:6rem}
@@ -168,9 +178,15 @@ a{color:inherit}
   <h1 class="hiw-hero__title reveal">HOW IT WORKS</h1>
 </section>
 
-<!-- 02. INTRO -->
+<!-- 02. VIDEO HERO (two panels, placeholder photos for now) -->
+<div class="hiw-video-hero reveal">
+  <div class="hiw-video-hero__panel"><img src="images/hero-01.jpg" alt=""></div>
+  <div class="hiw-video-hero__panel"><img src="images/warm-2.jpg" alt=""></div>
+</div>
+
+<!-- 03. INTRO -->
 <section class="hiw-intro gutters">
-  <span class="section-tag reveal">ЯК МИ ПРАЦЮЄМО</span>
+  <div class="hiw-intro__title reveal"><span class="section-tag">ЯК МИ ПРАЦЮЄМО</span></div>
   <p class="hiw-intro__lead reveal">Від першого фото вашого простору до готової візуальної концепції — зрозумілий процес, у якому кожен наступний крок починається тільки після погодження попереднього.</p>
   <p class="hiw-intro__sub reveal">Спочатку ми знайомимося з простором і вашими побажаннями. Потім визначаємо напрямок, створюємо концепцію, вносимо погоджені зміни й передаємо готовий результат.</p>
 </section>
