@@ -45,6 +45,13 @@ a{color:inherit}
 .reveal{opacity:0;transform:translateY(2.5rem);transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
 .reveal.is-visible{opacity:1;transform:translateY(0)}
 
+/* word-split reveal — same mechanic as shed.design's text-splitter/anim-word:
+   every word slides up out of its own clip box, staggered, while the
+   surrounding .reveal block fades/rises as usual */
+.split-word-wrap{display:inline-block;overflow:hidden;vertical-align:top}
+.split-word{display:inline-block;transform:translateY(105%);transition:transform .8s cubic-bezier(.14,1,.34,1)}
+.is-visible .split-word{transform:translateY(0)}
+
 .section-tag{display:inline-block;font-family:SequelWeb,sans-serif;font-size:1.3rem;font-weight:500;letter-spacing:.08em;margin-bottom:2rem;text-transform:uppercase}
 @media (min-width:1024px){.section-tag{font-size:.85vw;margin-bottom:1.4vw}}
 
@@ -175,7 +182,7 @@ a{color:inherit}
 
 <!-- 01. PAGE TITLE -->
 <section class="hiw-hero gutters">
-  <h1 class="hiw-hero__title reveal">HOW IT WORKS</h1>
+  <h1 class="hiw-hero__title reveal split-text">HOW IT WORKS</h1>
 </section>
 
 <!-- 02. VIDEO HERO (two panels, placeholder photos for now) -->
@@ -186,9 +193,9 @@ a{color:inherit}
 
 <!-- 03. INTRO -->
 <section class="hiw-intro gutters">
-  <div class="hiw-intro__title reveal"><span class="section-tag">ЯК МИ ПРАЦЮЄМО</span></div>
-  <p class="hiw-intro__lead reveal">Від першого фото вашого простору до готової візуальної концепції — зрозумілий процес, у якому кожен наступний крок починається тільки після погодження попереднього.</p>
-  <p class="hiw-intro__sub reveal">Спочатку ми знайомимося з простором і вашими побажаннями. Потім визначаємо напрямок, створюємо концепцію, вносимо погоджені зміни й передаємо готовий результат.</p>
+  <div class="hiw-intro__title reveal"><span class="section-tag split-text">ЯК МИ ПРАЦЮЄМО</span></div>
+  <p class="hiw-intro__lead reveal split-text">Від першого фото вашого простору до готової візуальної концепції — зрозумілий процес, у якому кожен наступний крок починається тільки після погодження попереднього.</p>
+  <p class="hiw-intro__sub reveal split-text">Спочатку ми знайомимося з простором і вашими побажаннями. Потім визначаємо напрямок, створюємо концепцію, вносимо погоджені зміни й передаємо готовий результат.</p>
 </section>
 
 <!-- 03. INTERACTIVE PROCESS -->
@@ -197,7 +204,7 @@ a{color:inherit}
     <ol class="hiw-process__list" id="hiwList">
       <li class="hiw-step" data-step="0">
         <button type="button" class="hiw-step__head" aria-expanded="false">
-          <span class="hiw-step__word">ПРОСТІР</span>
+          <span class="hiw-step__word reveal split-text">ПРОСТІР</span>
           <span class="hiw-step__icon"><span></span><span></span></span>
         </button>
         <div class="hiw-step__panel"><div class="hiw-step__inner">
@@ -209,7 +216,7 @@ a{color:inherit}
       </li>
       <li class="hiw-step" data-step="1">
         <button type="button" class="hiw-step__head" aria-expanded="false">
-          <span class="hiw-step__word">НАПРЯМОК</span>
+          <span class="hiw-step__word reveal split-text">НАПРЯМОК</span>
           <span class="hiw-step__icon"><span></span><span></span></span>
         </button>
         <div class="hiw-step__panel"><div class="hiw-step__inner">
@@ -220,7 +227,7 @@ a{color:inherit}
       </li>
       <li class="hiw-step" data-step="2">
         <button type="button" class="hiw-step__head" aria-expanded="false">
-          <span class="hiw-step__word">КОНЦЕПЦІЯ</span>
+          <span class="hiw-step__word reveal split-text">КОНЦЕПЦІЯ</span>
           <span class="hiw-step__icon"><span></span><span></span></span>
         </button>
         <div class="hiw-step__panel"><div class="hiw-step__inner">
@@ -236,7 +243,7 @@ a{color:inherit}
       </li>
       <li class="hiw-step" data-step="3">
         <button type="button" class="hiw-step__head" aria-expanded="false">
-          <span class="hiw-step__word">ФІНАЛ</span>
+          <span class="hiw-step__word reveal split-text">ФІНАЛ</span>
           <span class="hiw-step__icon"><span></span><span></span></span>
         </button>
         <div class="hiw-step__panel"><div class="hiw-step__inner">
@@ -263,36 +270,63 @@ a{color:inherit}
 
 <!-- 04. TERMS -->
 <section class="hiw-terms gutters">
-  <h2 class="hiw-terms__title reveal">ТЕРМІНИ</h2>
+  <h2 class="hiw-terms__title reveal split-text">ТЕРМІНИ</h2>
   <div class="hiw-terms__row reveal">
     <div class="hiw-terms__item"><b>Hygge Corner</b><span>5–7 робочих днів</span></div>
     <div class="hiw-terms__item"><b>Room Reset</b><span>7–10 робочих днів</span></div>
     <div class="hiw-terms__item"><b>Room Reset + Sourcing</b><span>10–14 робочих днів</span></div>
   </div>
-  <p class="hiw-terms__note reveal">Термін роботи починається після отримання всіх необхідних матеріалів, підписання договору та передоплати.</p>
+  <p class="hiw-terms__note reveal split-text">Термін роботи починається після отримання всіх необхідних матеріалів, підписання договору та передоплати.</p>
   <div class="hiw-terms__format reveal">
-    <h3>Формат роботи</h3>
+    <h3 class="split-text">Формат роботи</h3>
     <p>Працюємо онлайн незалежно від міста.<br>Територіально — Ужгород. Для локальних проєктів можливий виїзд на об’єкт.</p>
   </div>
 </section>
 
 <!-- 05. IMPORTANT -->
 <section class="hiw-important gutters">
-  <span class="section-tag reveal">ВАЖЛИВО</span>
-  <p class="hiw-important__lead reveal">DANISH INTERIOR створює візуальні концепції інтер’єру.</p>
-  <p class="hiw-important__note reveal">Послуга не включає технічні креслення електрики та сантехніки, будівельну документацію або авторський нагляд.</p>
+  <span class="section-tag reveal split-text">ВАЖЛИВО</span>
+  <p class="hiw-important__lead reveal split-text">DANISH INTERIOR створює візуальні концепції інтер’єру.</p>
+  <p class="hiw-important__note reveal split-text">Послуга не включає технічні креслення електрики та сантехніки, будівельну документацію або авторський нагляд.</p>
 </section>
 
 <!-- 06. FINAL CTA -->
 <section class="hiw-cta">
   <div class="hiw-cta__inner gutters">
-    <h2 class="hiw-cta__title reveal">READY TO START?</h2>
-    <p class="hiw-cta__text reveal">Покажіть нам свій простір — ми підкажемо, з чого почати.</p>
-    <a href="contact.html" class="hiw-cta__link reveal">РОЗПОВІСТИ ПРО СВІЙ ПРОСТІР →</a>
+    <h2 class="hiw-cta__title reveal split-text">READY TO START?</h2>
+    <p class="hiw-cta__text reveal split-text">Покажіть нам свій простір — ми підкажемо, з чого почати.</p>
+    <a href="contact.html" class="hiw-cta__link reveal split-text">РОЗПОВІСТИ ПРО СВІЙ ПРОСТІР →</a>
   </div>
 </section>
 
 <script>
+/* word-split reveal — wraps each word of .split-text elements in its own
+   overflow-hidden box, matching shed.design's text-splitter/anim-word markup */
+(function(){
+  function splitWords(el){
+    var text = el.textContent;
+    var parts = text.split(/(\s+)/);
+    var frag = document.createDocumentFragment();
+    var wi = 0;
+    parts.forEach(function(part){
+      if(!part) return;
+      if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+      var wrap = document.createElement('span');
+      wrap.className = 'split-word-wrap';
+      var word = document.createElement('span');
+      word.className = 'split-word';
+      word.style.transitionDelay = Math.min(wi * 0.04, 0.6).toFixed(3) + 's';
+      word.textContent = part;
+      wrap.appendChild(word);
+      frag.appendChild(wrap);
+      wi++;
+    });
+    el.textContent = '';
+    el.appendChild(frag);
+  }
+  document.querySelectorAll('.split-text').forEach(splitWords);
+})();
+
 (function(){
   var els = document.querySelectorAll('.reveal');
   var io = new IntersectionObserver(function(entries){
