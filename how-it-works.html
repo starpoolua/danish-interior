@@ -139,15 +139,23 @@ a{color:inherit}
 .hiw-quotes{border-top:.1rem solid rgba(28,28,28,.15);overflow:hidden;padding-bottom:8rem;padding-top:8rem;text-align:center}
 @media (min-width:1024px){.hiw-quotes{padding-bottom:6.25vw;padding-top:9vw}}
 .hiw-quotes__track{display:flex;transition:transform .6s cubic-bezier(.16,1,.3,1)}
-.hiw-quotes__item{flex:0 0 83.3333vw;opacity:.1;padding:0 1.6rem;transition:opacity .6s}
+.hiw-quotes__item{flex:0 0 83.3333vw;padding:0 1.6rem}
 @media (min-width:1024px){.hiw-quotes__item{flex:0 0 63.5vw;padding:0 2vw}}
 .hiw-quotes__item:first-child{margin-left:8.20513vw}
 @media (min-width:1024px){.hiw-quotes__item:first-child{margin-left:23.9375vw}}
-.hiw-quotes__item.is-active{opacity:1}
-.hiw-quotes__item .split-word{transform:translateY(0)}
-.hiw-quotes__item.is-entering .split-word{transform:translateY(105%);transition:none}
+.hiw-quotes__quote{position:relative}
 .hiw-quotes__text{font-family:OwnersWeb,sans-serif;font-size:3rem;font-weight:600;letter-spacing:-.01em;line-height:.89;margin:0 auto;max-width:60rem;text-transform:uppercase}
 @media (min-width:1024px){.hiw-quotes__text{font-size:4.0625vw;max-width:52.125vw}}
+/* dual-layer text reveal — exact mechanic measured on shed.design's
+   .testimonial-item: a permanently-dim "ghost" copy of the quote sits
+   underneath (this IS what gives the peek its readable-but-faint look),
+   a second copy overlays it and reveals line-by-line when its item
+   becomes active, hiding the ghost entirely */
+.hiw-quotes__text--ghost{opacity:.12}
+.hiw-quotes__text--active{inset:0;position:absolute}
+.hiw-quotes__line-wrap{display:block;overflow:hidden}
+.hiw-quotes__line{display:block;transform:translateY(-105%);transition:transform .8s cubic-bezier(.14,1,.34,1)}
+.hiw-quotes__item.is-active .hiw-quotes__line{transform:translateY(0)}
 .hiw-quotes__author{color:rgba(28,28,28,.55);display:block;font-family:SequelWeb,sans-serif;font-size:1.6rem;font-style:normal;margin-top:1.5rem}
 @media (min-width:1024px){.hiw-quotes__author{margin-top:1.6875vw}}
 .hiw-quotes__nav{display:flex;gap:.8rem;justify-content:center;margin-top:4rem}
@@ -208,12 +216,20 @@ a{color:inherit}
 /* ============ 06. FINAL CTA ============ */
 .hiw-cta{background:#FBCBDA;color:#1c1c1c;padding-top:8rem;padding-bottom:8rem;text-align:center}
 @media (min-width:1024px){.hiw-cta{padding-top:8vw;padding-bottom:8vw}}
-.hiw-cta__title{font-family:OwnersWeb,sans-serif;font-size:6rem;font-weight:600;letter-spacing:-.02em;line-height:.9;text-transform:uppercase}
-@media (min-width:1024px){.hiw-cta__title{font-size:6.5vw}}
-.hiw-cta__text{font-family:RecklessWeb,serif;font-size:1.8rem;margin:2rem auto 0;max-width:44rem}
-@media (min-width:1024px){.hiw-cta__text{font-size:1.3vw;margin-top:1.4vw;max-width:34vw}}
-.hiw-cta__link{border-bottom:.15rem solid currentColor;display:inline-block;font-family:SequelWeb,sans-serif;font-size:1.7rem;font-weight:600;letter-spacing:.02em;margin-top:3.5rem;text-transform:uppercase;transition:color .3s,border-color .3s}
-@media (min-width:1024px){.hiw-cta__link{font-size:1.1vw;margin-top:2.5vw}}
+.hiw-cta__text{font-family:RecklessWeb,serif;font-size:1.8rem;margin:0 auto;max-width:44rem}
+@media (min-width:1024px){.hiw-cta__text{font-size:1.3vw;max-width:34vw}}
+
+/* final footer-link — exact mechanic measured on shed.design's "See work":
+   huge label + inline photo + arrow, all one flex row, whole thing clickable */
+.hiw-final-link{align-items:center;color:inherit;display:flex;flex-direction:column;margin-top:4rem;text-decoration:none}
+@media (min-width:1024px){.hiw-final-link{flex-direction:row;justify-content:center;margin-top:3vw}}
+.hiw-final-link__label{font-family:OwnersWeb,sans-serif;font-size:5rem;font-weight:600;letter-spacing:-.02em;line-height:.81;text-transform:uppercase}
+@media (min-width:1024px){.hiw-final-link__label{font-size:6.5vw}}
+.hiw-final-link__photo{aspect-ratio:238/145;margin:1.2rem 0;overflow:hidden;position:relative;width:22rem}
+@media (min-width:1024px){.hiw-final-link__photo{margin:0 0 0 1.5vw;width:9vw}}
+.hiw-final-link__photo img{display:block;height:100%;object-fit:cover;width:100%}
+.hiw-final-link__arrow{display:flex;height:4rem;width:4rem}
+@media (min-width:1024px){.hiw-final-link__arrow{height:5vw;margin-left:1.2vw;width:5vw}}
 
 /* custom-link hover roll — exact mechanic measured on shed.design/services:
    words alternate direction, clone layer rolls in from the opposite side,
@@ -380,19 +396,31 @@ a{color:inherit}
 <section class="hiw-quotes reveal">
   <div class="hiw-quotes__track" id="hiwQuotesTrack">
     <blockquote class="hiw-quotes__item is-active" data-quote="0">
-      <p class="hiw-quotes__text split-text">«Світло й музика повністю змінюють те, як ми відчуваємо кімнату»</p>
+      <div class="hiw-quotes__quote">
+        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Світло й музика повністю змінюють те, як ми відчуваємо кімнату»</p>
+        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Світло й музика повністю змінюють те, як ми відчуваємо кімнату»</p>
+      </div>
       <cite class="hiw-quotes__author">— Fritz Hansen</cite>
     </blockquote>
     <blockquote class="hiw-quotes__item" data-quote="1">
-      <p class="hiw-quotes__text split-text">«Hygge — це не стиль інтер’єру, а спосіб створювати атмосферу: світлом, теплом, та маленькими ритуалами.»</p>
+      <div class="hiw-quotes__quote">
+        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Hygge — це не стиль інтер’єру, а спосіб створювати атмосферу: світлом, теплом, та маленькими ритуалами.»</p>
+        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Hygge — це не стиль інтер’єру, а спосіб створювати атмосферу: світлом, теплом, та маленькими ритуалами.»</p>
+      </div>
       <cite class="hiw-quotes__author">— Nanna Ditzel</cite>
     </blockquote>
     <blockquote class="hiw-quotes__item" data-quote="2">
-      <p class="hiw-quotes__text split-text">«Моя мета — створювати речі для людей, ставити людину в центр, а не пристосовувати її до предметів.»</p>
+      <div class="hiw-quotes__quote">
+        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Моя мета — створювати речі для людей, ставити людину в центр, а не пристосовувати її до предметів.»</p>
+        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Моя мета — створювати речі для людей, ставити людину в центр, а не пристосовувати її до предметів.»</p>
+      </div>
       <cite class="hiw-quotes__author">— Børge Mogensen</cite>
     </blockquote>
     <blockquote class="hiw-quotes__item" data-quote="3">
-      <p class="hiw-quotes__text split-text">«Hygge — це маленькі моменти, які неможливо купити: особливе у звичайному дні.»</p>
+      <div class="hiw-quotes__quote">
+        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Hygge — це маленькі моменти, які неможливо купити: особливе у звичайному дні.»</p>
+        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Hygge — це маленькі моменти, які неможливо купити: особливе у звичайному дні.»</p>
+      </div>
       <cite class="hiw-quotes__author">— Marie Tourell Søderberg</cite>
     </blockquote>
   </div>
@@ -450,9 +478,12 @@ a{color:inherit}
 <!-- 06. FINAL CTA -->
 <section class="hiw-cta">
   <div class="hiw-cta__inner gutters">
-    <h2 class="hiw-cta__title reveal split-text">READY TO START?</h2>
     <p class="hiw-cta__text reveal split-text">Покажіть нам свій простір — ми підкажемо, з чого почати.</p>
-    <a href="index.html#request" class="hiw-cta__link reveal custom-link"><span class="custom-link__split custom-link__split--main">РОЗПОВІСТИ ПРО СВІЙ ПРОСТІР →</span></a>
+    <a href="index.html#request" class="hiw-final-link reveal" aria-label="Ready to start? — розповісти про свій простір">
+      <span class="hiw-final-link__label">READY TO START?</span>
+      <span class="hiw-final-link__photo"><img src="images/warm-1.jpg" alt=""></span>
+      <span class="hiw-final-link__arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 155 157"><path stroke="currentColor" stroke-width="3" d="M1.5 87.688v1.5h109.691l-48.798 48.797-1.064 1.064 1.068 1.061 13.046 12.954 1.06 1.054 1.058-1.057 73.5-73.5 1.06-1.061-1.06-1.06-73.5-73.5L76.5 2.878l-1.06 1.06-12.955 12.955-1.06 1.06 1.059 1.06 48.711 48.799H1.5v19.874Z"></path></svg></span>
+    </a>
   </div>
 </section>
 
@@ -528,22 +559,59 @@ a{color:inherit}
   });
 })();
 
-/* testimonials — horizontal peek carousel: active quote in view, next one
-   peeking at low opacity on the right, matching shed.design/services'
-   .testimonial-item track mechanic */
+/* testimonials — horizontal peek carousel + dual-layer LINE reveal, exact
+   mechanic measured on shed.design's .testimonial-item: a dim "ghost" copy
+   of the quote always sits underneath (that's what makes the peek readable
+   but faint), a second copy overlays it and reveals line-by-line (not
+   word-by-word) when its item becomes active */
 (function(){
   var items = document.querySelectorAll('.hiw-quotes__item');
   var dots = document.querySelectorAll('.hiw-quotes__dot');
   var track = document.getElementById('hiwQuotesTrack');
   if(!items.length || !track) return;
+
+  function splitLines(el){
+    var words = el.textContent.trim().split(/\s+/);
+    var frag = document.createDocumentFragment();
+    var wordEls = [];
+    words.forEach(function(w, i){
+      var span = document.createElement('span');
+      span.style.display = 'inline-block';
+      span.textContent = w;
+      frag.appendChild(span);
+      wordEls.push(span);
+      if(i < words.length - 1) frag.appendChild(document.createTextNode(' '));
+    });
+    el.textContent = '';
+    el.appendChild(frag);
+    var lines = [];
+    var lastTop = null;
+    wordEls.forEach(function(w){
+      var top = w.offsetTop;
+      if(top !== lastTop){ lines.push([]); lastTop = top; }
+      lines[lines.length - 1].push(w.textContent);
+    });
+    el.innerHTML = '';
+    lines.forEach(function(lineWords, i){
+      var wrap = document.createElement('span');
+      wrap.className = 'hiw-quotes__line-wrap';
+      var inner = document.createElement('span');
+      inner.className = 'hiw-quotes__line';
+      inner.style.transitionDelay = (i * 0.08).toFixed(3) + 's';
+      inner.textContent = lineWords.join(' ');
+      wrap.appendChild(inner);
+      el.appendChild(wrap);
+    });
+  }
+  function initLines(){
+    document.querySelectorAll('.hiw-quotes__text--active').forEach(splitLines);
+  }
+  initLines();
+
   var current = 0;
   function goTo(idx){
     current = idx;
     items.forEach(function(item, i){ item.classList.toggle('is-active', i === idx); });
-    var entering = items[idx];
-    entering.classList.add('is-entering');
-    void entering.offsetWidth;
-    entering.classList.remove('is-entering');
     dots.forEach(function(d, i){ d.classList.toggle('is-active', i === idx); });
     var step = items[0].getBoundingClientRect().width;
     track.style.transform = 'translateX(-' + (idx * step) + 'px)';
@@ -553,7 +621,7 @@ a{color:inherit}
       goTo(parseInt(dot.getAttribute('data-goto'), 10));
     });
   });
-  window.addEventListener('resize', function(){ goTo(current); });
+  window.addEventListener('resize', function(){ initLines(); goTo(current); });
 })();
 
 /* terms accordion — single collapsible section, closed by default */
