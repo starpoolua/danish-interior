@@ -74,7 +74,7 @@ a{color:inherit}
 @media (min-width:1024px){.hiw-intro{padding-bottom:9vw}}
 .hiw-intro__title{margin-top:1.2rem}
 @media (min-width:1024px){.hiw-intro__title{margin-top:.75vw}}
-.hiw-intro .section-tag{display:block;margin-bottom:0}
+.hiw-intro .section-tag{display:block}
 .hiw-intro__lead{font-family:SequelWeb,sans-serif;font-size:2.7rem;font-weight:500;letter-spacing:-.02em;line-height:1;margin-top:10rem;max-width:66rem}
 @media (min-width:1024px){.hiw-intro__lead{font-size:3.75vw;margin-top:10.5625vw;max-width:90.0625vw}}
 .hiw-intro__sub{font-family:RecklessWeb,serif;font-size:1.8rem;letter-spacing:-.01em;line-height:1.4;margin-top:3rem;max-width:52rem}
@@ -119,11 +119,29 @@ a{color:inherit}
 .hiw-process__fig.is-active{opacity:1;z-index:1}
 .hiw-process__fig img{height:100%;object-fit:cover;width:100%}
 
-/* ============ 04. TERMS ============ */
+/* ============ 04. WHY US — dark full-bleed statement block; structure and
+   typography measured directly on shed.design/services' "Why Shed?" section
+   (title-pill -> h2 -> p2-alt intro -> p1 statement) ============ */
+.hiw-why{background:#1c1c1c;color:#FFFBEF;padding-bottom:6rem;padding-top:6rem}
+@media (min-width:1024px){.hiw-why{padding-bottom:5vw;padding-top:5vw}}
+.hiw-why__title{font-family:OwnersWeb,sans-serif;font-size:5.6rem;font-weight:600;letter-spacing:-.01em;line-height:.81;margin-top:2rem;text-transform:uppercase}
+@media (min-width:1024px){.hiw-why__title{font-size:10vw;margin-top:2.5vw}}
+.hiw-why__intro{font-family:RecklessWeb,serif;font-size:1.5rem;line-height:1.4;margin-top:1.2rem;max-width:34rem}
+@media (min-width:1024px){.hiw-why__intro{font-size:1.5vw;margin-top:1.375vw;max-width:39.875vw}}
+.hiw-why__copy{font-family:SequelWeb,sans-serif;font-size:2.7rem;font-weight:500;letter-spacing:-.02em;line-height:1;margin-top:10rem;max-width:66rem}
+@media (min-width:1024px){.hiw-why__copy{font-size:3.75vw;margin-top:11.25vw;max-width:90.0625vw}}
+
+/* ============ 05. TERMS — collapsed accordion, opens via + (reuses .hiw-step__icon) ============ */
 .hiw-terms{border-top:.1rem solid rgba(28,28,28,.15);padding-top:6rem;padding-bottom:6rem}
 @media (min-width:1024px){.hiw-terms{padding-top:5vw;padding-bottom:5vw}}
-.hiw-terms__title{font-family:OwnersWeb,sans-serif;font-size:2.6rem;font-weight:600;letter-spacing:-.01em;margin-bottom:3rem;text-transform:uppercase}
-@media (min-width:1024px){.hiw-terms__title{font-size:1.8vw;margin-bottom:2.5vw}}
+.hiw-terms__head{align-items:center;background:none;border:0;color:inherit;cursor:pointer;display:flex;gap:1.6rem;justify-content:space-between;width:100%}
+.hiw-terms__title{font-family:OwnersWeb,sans-serif;font-size:2.6rem;font-weight:600;letter-spacing:-.01em;text-transform:uppercase}
+@media (min-width:1024px){.hiw-terms__title{font-size:1.8vw}}
+.hiw-terms__panel{height:0;overflow:hidden;transition:height .45s cubic-bezier(.16,1,.3,1)}
+.hiw-terms__inner{opacity:0;padding-top:3rem;transform:translateY(1rem);transition:opacity .4s cubic-bezier(.16,1,.3,1),transform .4s cubic-bezier(.16,1,.3,1)}
+@media (min-width:1024px){.hiw-terms__inner{padding-top:2.5vw}}
+.hiw-terms--open .hiw-terms__inner{opacity:1;transform:translateY(0);transition-delay:.1s}
+.hiw-terms--open .hiw-step__icon span:nth-child(2){transform:translate(-50%,-50%) scaleY(0)}
 .hiw-terms__row{border-top:.1rem solid rgba(28,28,28,.15);display:flex;flex-direction:column}
 @media (min-width:1024px){.hiw-terms__row{flex-direction:row}}
 .hiw-terms__item{border-bottom:.1rem solid rgba(28,28,28,.15);padding:2rem 0}
@@ -289,19 +307,32 @@ a{color:inherit}
   </div>
 </section>
 
-<!-- 04. TERMS -->
+<!-- 04. WHY US -->
+<section class="hiw-why gutters">
+  <span class="section-tag reveal split-text">ЧОМУ МИ?</span>
+  <h2 class="hiw-why__title reveal split-text">WHY US?</h2>
+  <p class="hiw-why__intro reveal split-text">Коли красиві речі не складаються в цілісний інтер’єр, проблема не завжди в самих речах.</p>
+  <p class="hiw-why__copy reveal split-text">Ми допомагаємо побачити, чого бракує простору — ще до нових покупок. Спочатку бачимо кімнату цілісно, визначаємо, що справді варто змінити, і поєднуємо світло, колір, меблі та деталі в одну систему. Ви бачите майбутній простір ще до того, як починаєте його реалізовувати.</p>
+</section>
+
+<!-- 05. TERMS (collapsed accordion, opens via +) -->
 <section class="hiw-terms gutters">
-  <h2 class="hiw-terms__title reveal split-text">ТЕРМІНИ</h2>
-  <div class="hiw-terms__row reveal">
-    <div class="hiw-terms__item"><b>Hygge Corner</b><span>5–7 робочих днів</span></div>
-    <div class="hiw-terms__item"><b>Room Reset</b><span>7–10 робочих днів</span></div>
-    <div class="hiw-terms__item"><b>Room Reset + Sourcing</b><span>10–14 робочих днів</span></div>
-  </div>
-  <p class="hiw-terms__note reveal split-text">Термін роботи починається після отримання всіх необхідних матеріалів, підписання договору та передоплати.</p>
-  <div class="hiw-terms__format reveal">
-    <h3 class="split-text">Формат роботи</h3>
-    <p>Працюємо онлайн незалежно від міста.<br>Територіально — Ужгород. Для локальних проєктів можливий виїзд на об’єкт.</p>
-  </div>
+  <button type="button" class="hiw-terms__head reveal" id="hiwTermsHead" aria-expanded="false">
+    <h2 class="hiw-terms__title split-text">ТЕРМІНИ</h2>
+    <span class="hiw-step__icon"><span></span><span></span></span>
+  </button>
+  <div class="hiw-terms__panel" id="hiwTermsPanel"><div class="hiw-terms__inner">
+    <div class="hiw-terms__row">
+      <div class="hiw-terms__item"><b>Hygge Corner</b><span>5–7 робочих днів</span></div>
+      <div class="hiw-terms__item"><b>Room Reset</b><span>7–10 робочих днів</span></div>
+      <div class="hiw-terms__item"><b>Room Reset + Sourcing</b><span>10–14 робочих днів</span></div>
+    </div>
+    <p class="hiw-terms__note">Термін роботи починається після отримання всіх необхідних матеріалів, підписання договору та передоплати.</p>
+    <div class="hiw-terms__format">
+      <h3>Формат роботи</h3>
+      <p>Працюємо онлайн незалежно від міста.<br>Територіально — Ужгород. Для локальних проєктів можливий виїзд на об’єкт.</p>
+    </div>
+  </div></div>
 </section>
 
 <!-- 05. IMPORTANT -->
@@ -389,6 +420,25 @@ a{color:inherit}
       var panel = step.querySelector('.hiw-step__panel');
       panel.style.height = panel.firstElementChild.getBoundingClientRect().height + 'px';
     });
+  });
+})();
+
+/* terms accordion — single collapsible section, closed by default */
+(function(){
+  var section = document.querySelector('.hiw-terms');
+  var head = document.getElementById('hiwTermsHead');
+  var panel = document.getElementById('hiwTermsPanel');
+  if(!section || !head || !panel) return;
+  head.addEventListener('click', function(){
+    var willOpen = !section.classList.contains('hiw-terms--open');
+    section.classList.toggle('hiw-terms--open', willOpen);
+    head.setAttribute('aria-expanded', String(willOpen));
+    panel.style.height = willOpen ? panel.firstElementChild.getBoundingClientRect().height + 'px' : '';
+  });
+  window.addEventListener('resize', function(){
+    if(section.classList.contains('hiw-terms--open')){
+      panel.style.height = panel.firstElementChild.getBoundingClientRect().height + 'px';
+    }
   });
 })();
 
