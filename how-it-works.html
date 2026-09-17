@@ -159,6 +159,21 @@ a{color:inherit}
 @media (min-width:1024px){.hiw-cta__link{font-size:1.1vw;margin-top:2.5vw}}
 .hiw-cta__link:hover{border-color:#FFFCAE;color:#8f939a}
 
+/* custom-link hover roll — exact mechanic measured on shed.design/services:
+   words alternate direction, clone layer rolls in from the opposite side,
+   entering hover is slow/bouncy, leaving is quick/sharp */
+.custom-link{cursor:pointer;position:relative}
+.custom-link__split{display:inline-block;overflow:hidden;pointer-events:none}
+.custom-link__split--clone{display:none;left:0;position:absolute;top:0;z-index:1}
+@media (hover:hover) and (min-width:1024px){.custom-link__split--clone{display:inline-block}}
+.custom-link__word{display:inline-block;transition:transform .4s cubic-bezier(1,0,.65,.61)}
+@media (hover:hover){.custom-link:hover .custom-link__word{transition-duration:.8s;transition-timing-function:cubic-bezier(.14,1,.34,1)}}
+.custom-link__split--main.custom-link__split--hovering .custom-link__word:nth-child(2n+1){transform:translateY(100%)}
+.custom-link__split--main.custom-link__split--hovering .custom-link__word:nth-child(2n){transform:translateY(-100%)}
+.custom-link__word--clone:nth-child(2n+1){transform:translateY(-100%)}
+.custom-link__word--clone:nth-child(2n){transform:translateY(100%)}
+.custom-link--hovered .custom-link__word--clone{transform:translateY(0)}
+
 /* ============ custom cursor (same mechanic as danish-point-of-view.html) ============ */
 .custom-cursor{display:none!important}
 </style>
@@ -301,7 +316,7 @@ a{color:inherit}
   <div class="hiw-cta__inner gutters">
     <h2 class="hiw-cta__title reveal split-text">READY TO START?</h2>
     <p class="hiw-cta__text reveal split-text">Покажіть нам свій простір — ми підкажемо, з чого почати.</p>
-    <a href="index.html#request" class="hiw-cta__link reveal split-text">РОЗПОВІСТИ ПРО СВІЙ ПРОСТІР →</a>
+    <a href="index.html#request" class="hiw-cta__link reveal custom-link"><span class="custom-link__split custom-link__split--main">РОЗПОВІСТИ ПРО СВІЙ ПРОСТІР →</span></a>
   </div>
 </section>
 
@@ -374,6 +389,33 @@ a{color:inherit}
       var panel = step.querySelector('.hiw-step__panel');
       panel.style.height = panel.firstElementChild.getBoundingClientRect().height + 'px';
     });
+  });
+})();
+
+/* custom-link hover roll — build main words + clone layer, wire hover */
+(function(){
+  var link = document.querySelector('.custom-link');
+  if(!link) return;
+  var main = link.querySelector('.custom-link__split--main');
+  var text = main.textContent;
+  function wordsHTML(cls){
+    return text.split(' ').map(function(w){
+      return '<div style="position:relative;display:inline-block;" class="'+cls+'">'+w+'</div>';
+    }).join(' ');
+  }
+  main.innerHTML = wordsHTML('custom-link__word');
+  var clone = document.createElement('span');
+  clone.className = 'custom-link__split custom-link__split--clone';
+  clone.setAttribute('aria-hidden', 'true');
+  clone.innerHTML = wordsHTML('custom-link__word custom-link__word--clone');
+  link.appendChild(clone);
+  link.addEventListener('mouseenter', function(){
+    link.classList.add('custom-link--hovered');
+    main.classList.add('custom-link__split--hovering');
+  });
+  link.addEventListener('mouseleave', function(){
+    link.classList.remove('custom-link--hovered');
+    main.classList.remove('custom-link__split--hovering');
   });
 })();
 
