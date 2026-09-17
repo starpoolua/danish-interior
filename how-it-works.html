@@ -17,7 +17,7 @@ a{color:inherit}
 @media (min-width:1024px){.gutters{padding:0 .75vw}}
 
 /* header — logo / centered pill / + menu toggle, matching the rest of the site */
-.dpov-header{align-items:center;background:#fff;color:#1c1c1c;display:flex;height:5.6rem;padding:0 .8rem;position:sticky;top:0;z-index:999}
+.dpov-header{align-items:center;background:#fff;color:#1c1c1c;display:flex;height:5.6rem;padding:0 .8rem;position:relative;z-index:999}
 @media (min-width:1024px){.dpov-header{height:4.5vw;padding:0 .75vw}}
 .dpov-logo{color:inherit;display:inline-flex;height:2.5rem;text-decoration:none;width:auto}
 @media (min-width:1024px){.dpov-logo{height:2vw}}
@@ -214,7 +214,7 @@ a{color:inherit}
 @media (min-width:1024px){.hiw-important__note{font-size:1vw;max-width:36vw}}
 
 /* ============ 06. FINAL CTA ============ */
-.hiw-cta{background:#FBCBDA;color:#1c1c1c;padding-top:8rem;padding-bottom:8rem;text-align:center}
+.hiw-cta{color:#1c1c1c;padding-top:8rem;padding-bottom:8rem;text-align:center}
 @media (min-width:1024px){.hiw-cta{padding-top:8vw;padding-bottom:8vw}}
 .hiw-cta__text{font-family:RecklessWeb,serif;font-size:1.8rem;margin:0 auto;max-width:44rem}
 @media (min-width:1024px){.hiw-cta__text{font-size:1.3vw;max-width:34vw}}
@@ -223,12 +223,12 @@ a{color:inherit}
    huge label + inline photo + arrow, all one flex row, whole thing clickable */
 .hiw-final-link{align-items:flex-start;color:inherit;display:flex;flex-direction:column;margin-top:1.2rem;position:relative;text-align:left;text-decoration:none}
 @media (min-width:1024px){.hiw-final-link{align-items:baseline;flex-direction:row;margin-top:.75vw}}
-.hiw-final-link__label{font-family:OwnersWeb,sans-serif;font-size:4.2rem;font-weight:600;letter-spacing:-.02em;line-height:.9;text-transform:uppercase}
-@media (min-width:1024px){.hiw-final-link__label{font-size:6vw;white-space:nowrap}}
+.hiw-final-link__label{color:#FBCBDA;font-family:OwnersWeb,sans-serif;font-size:5.625rem;font-weight:600;letter-spacing:-.02em;line-height:.81;text-transform:uppercase}
+@media (min-width:1024px){.hiw-final-link__label{font-size:12.9375vw;letter-spacing:-.01em;line-height:.75}}
 .hiw-final-link__photo{aspect-ratio:149/91;margin-bottom:.6rem;order:-1;position:relative;width:38.2051vw}
 @media (min-width:1024px){.hiw-final-link__photo{aspect-ratio:238/145;margin-bottom:0;margin-left:1.25vw;order:0;width:14.875vw}}
 .hiw-final-link__photo img{display:block;height:100%;object-fit:cover;width:100%}
-.hiw-final-link__arrow{display:flex;height:3.2rem;margin-top:1.2rem;width:3.2rem}
+.hiw-final-link__arrow{color:#FBCBDA;display:flex;height:4.0625rem;margin-top:1.2rem;width:4rem}
 @media (min-width:1024px){.hiw-final-link__arrow{height:9.8125vw;margin-left:auto;margin-top:0;width:9.6875vw}}
 
 /* custom-link hover roll — exact mechanic measured on shed.design/services:
@@ -479,7 +479,7 @@ a{color:inherit}
 <section class="hiw-cta">
   <div class="hiw-cta__inner gutters">
     <a href="index.html#request" class="hiw-final-link reveal" aria-label="Ready to start? — розповісти про свій простір">
-      <span class="hiw-final-link__label split-text">READY TO START?</span>
+      <span class="hiw-final-link__label split-text">TO START</span>
       <span class="hiw-final-link__photo"><img src="images/warm-1.jpg" alt=""></span>
       <span class="hiw-final-link__arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 155 157"><path stroke="currentColor" stroke-width="3" d="M1.5 87.688v1.5h109.691l-48.798 48.797-1.064 1.064 1.068 1.061 13.046 12.954 1.06 1.054 1.058-1.057 73.5-73.5 1.06-1.061-1.06-1.06-73.5-73.5L76.5 2.878l-1.06 1.06-12.955 12.955-1.06 1.06 1.059 1.06 48.711 48.799H1.5v19.874Z"></path></svg></span>
     </a>
