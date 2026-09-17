@@ -61,8 +61,11 @@ a{color:inherit}
    every word slides up out of its own clip box, staggered, while the
    surrounding .reveal block fades/rises as usual */
 .split-word-wrap{display:inline-block;overflow:hidden;vertical-align:top}
-.split-word{display:inline-block;transform:translateY(105%);transition:transform .8s cubic-bezier(.14,1,.34,1)}
-.is-visible .split-word{transform:translateY(0)}
+.split-word{display:inline-block;transition:transform .8s cubic-bezier(.14,1,.34,1)}
+.split-word-wrap:nth-child(odd) .split-word{transform:translateY(105%)}
+.split-word-wrap:nth-child(even) .split-word{transform:translateY(-105%)}
+.is-visible .split-word-wrap:nth-child(odd) .split-word,
+.is-visible .split-word-wrap:nth-child(even) .split-word{transform:translateY(0)}
 
 .section-tag{display:inline-block;font-family:SequelWeb,sans-serif;font-size:1.3rem;font-weight:500;letter-spacing:.08em;margin-bottom:2rem;text-transform:uppercase}
 @media (min-width:1024px){.section-tag{font-size:.85vw;margin-bottom:1.4vw}}
