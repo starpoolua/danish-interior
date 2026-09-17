@@ -81,7 +81,8 @@ a{color:inherit}
    full-bleed 1600/910 hero video block (real <video> tags land here later) ============ */
 .hiw-video-hero{aspect-ratio:1600/910;display:flex;overflow:hidden;width:100%}
 .hiw-video-hero__panel{flex:1;min-width:0;overflow:hidden;position:relative}
-.hiw-video-hero__panel video{height:100%;object-fit:cover;width:100%}
+.hiw-video-hero__panel video{height:100%;object-fit:cover;opacity:0;transition:opacity .4s;width:100%}
+.hiw-video-hero__panel video.is-loaded{opacity:1}
 @media (max-width:767px){.hiw-video-hero{aspect-ratio:4/5;flex-direction:column;height:auto}.hiw-video-hero__panel--2{display:none}}
 
 /* ============ 03. INTRO — copy matches shed.design/services' .services-intro exactly:
@@ -298,7 +299,7 @@ a{color:inherit}
 </section>
 
 <!-- 02. VIDEO HERO (two panels; second panel hidden on mobile) -->
-<div class="hiw-video-hero reveal">
+<div class="hiw-video-hero">
   <div class="hiw-video-hero__panel">
     <video src="videos/how-it-works-1.mp4" playsinline muted autoplay loop disablepictureinpicture></video>
   </div>
@@ -473,6 +474,16 @@ a{color:inherit}
 </section>
 
 <script>
+/* video-hero fade-in — exact mechanic measured on shed.design/services'
+   .base-video: video sits at opacity:0 and fades to 1 over .4s once its
+   data has loaded, no scroll-trigger, no translateY */
+(function(){
+  document.querySelectorAll('.hiw-video-hero__panel video').forEach(function(video){
+    if(video.readyState >= 2){ video.classList.add('is-loaded'); return; }
+    video.addEventListener('loadeddata', function(){ video.classList.add('is-loaded'); }, {once:true});
+  });
+})();
+
 /* word-split reveal — wraps each word of .split-text elements in its own
    overflow-hidden box, matching shed.design's text-splitter/anim-word markup */
 (function(){
