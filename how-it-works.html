@@ -65,8 +65,8 @@ a{color:inherit}
    full-bleed 1600/910 hero video block (real <video> tags land here later) ============ */
 .hiw-video-hero{aspect-ratio:1600/910;display:flex;overflow:hidden;width:100%}
 .hiw-video-hero__panel{flex:1;min-width:0;overflow:hidden;position:relative}
-.hiw-video-hero__panel img{height:100%;object-fit:cover;width:100%}
-@media (max-width:767px){.hiw-video-hero{aspect-ratio:auto;flex-direction:column;height:auto}.hiw-video-hero__panel{aspect-ratio:4/5}}
+.hiw-video-hero__panel video{height:100%;object-fit:cover;width:100%}
+@media (max-width:767px){.hiw-video-hero{aspect-ratio:4/5;flex-direction:column;height:auto}.hiw-video-hero__panel--2{display:none}}
 
 /* ============ 03. INTRO — copy matches shed.design/services' .services-intro exactly:
    font, weight, size, letter-spacing, line-height and margins taken from their CSS ============ */
@@ -187,10 +187,14 @@ a{color:inherit}
   <h1 class="hiw-hero__title reveal split-text">HOW IT WORKS</h1>
 </section>
 
-<!-- 02. VIDEO HERO (two panels, placeholder photos for now) -->
+<!-- 02. VIDEO HERO (two panels; second panel hidden on mobile) -->
 <div class="hiw-video-hero reveal">
-  <div class="hiw-video-hero__panel"><img src="images/hero-01.jpg" alt=""></div>
-  <div class="hiw-video-hero__panel"><img src="images/warm-2.jpg" alt=""></div>
+  <div class="hiw-video-hero__panel">
+    <video src="videos/how-it-works-1.mp4" playsinline muted autoplay loop disablepictureinpicture></video>
+  </div>
+  <div class="hiw-video-hero__panel hiw-video-hero__panel--2">
+    <video src="videos/how-it-works-2.mp4" playsinline muted autoplay loop disablepictureinpicture></video>
+  </div>
 </div>
 
 <!-- 03. INTRO -->
