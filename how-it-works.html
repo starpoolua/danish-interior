@@ -58,7 +58,7 @@ a{color:inherit}
 /* ============ 01. HERO / PAGE TITLE ============ */
 .hiw-hero{padding:5rem 0 4rem;text-align:center}
 @media (min-width:1024px){.hiw-hero{padding:7vw 0 3vw}}
-.hiw-hero__title{font-family:OwnersWeb,sans-serif;font-size:6.2rem;font-weight:600;letter-spacing:-.02em;line-height:.81;text-transform:uppercase}
+.hiw-hero__title{color:#FBCBDA;font-family:OwnersWeb,sans-serif;font-size:6.2rem;font-weight:600;letter-spacing:-.02em;line-height:.81;text-transform:uppercase}
 @media (min-width:1024px){.hiw-hero__title{font-size:11.875vw}}
 
 /* ============ 02. VIDEO HERO — two panels, matches shed.design/services'
@@ -122,7 +122,7 @@ a{color:inherit}
 /* ============ 04. WHY US — dark full-bleed statement block; structure and
    typography measured directly on shed.design/services' "Why Shed?" section
    (title-pill -> h2 -> p2-alt intro -> p1 statement) ============ */
-.hiw-why{background:#1c1c1c;color:#FFFBEF;padding-bottom:6rem;padding-top:6rem}
+.hiw-why{background:#FBCBDA;color:#1c1c1c;padding-bottom:6rem;padding-top:6rem}
 @media (min-width:1024px){.hiw-why{padding-bottom:5vw;padding-top:5vw}}
 .hiw-why__title{font-family:OwnersWeb,sans-serif;font-size:5.6rem;font-weight:600;letter-spacing:-.01em;line-height:.81;margin-top:2rem;text-transform:uppercase}
 @media (min-width:1024px){.hiw-why__title{font-size:10vw;margin-top:2.5vw}}
@@ -142,6 +142,8 @@ a{color:inherit}
 .hiw-quotes__item:first-child{margin-left:8.20513vw}
 @media (min-width:1024px){.hiw-quotes__item:first-child{margin-left:23.9375vw}}
 .hiw-quotes__item.is-active{opacity:1}
+.hiw-quotes__item .split-word{transform:translateY(105%)}
+.hiw-quotes__item.is-shown .split-word{transform:translateY(0)}
 .hiw-quotes__text{font-family:OwnersWeb,sans-serif;font-size:3rem;font-weight:600;letter-spacing:-.01em;line-height:.89;margin:0 auto;max-width:60rem;text-transform:uppercase}
 @media (min-width:1024px){.hiw-quotes__text{font-size:4.0625vw;max-width:52.125vw}}
 .hiw-quotes__author{color:rgba(28,28,28,.55);display:block;font-family:SequelWeb,sans-serif;font-size:1.6rem;font-style:normal;margin-top:1.5rem}
@@ -152,14 +154,18 @@ a{color:inherit}
 @media (min-width:1024px){.hiw-quotes__dot{font-size:.9vw;height:2.75vw;width:2.75vw}}
 .hiw-quotes__dot.is-active{background:#1c1c1c;border-color:transparent;color:#FFFBEF}
 
-/* ============ GALLERY — filmstrip row, each image keeps its own natural
-   aspect ratio at a fixed height (mixed formats, like shed.design's) ============ */
-.hiw-gallery{overflow-x:auto;padding:0 .8rem 8rem}
+/* ============ GALLERY — infinite marquee strip, exact mechanic measured on
+   shed.design/services' .services-marquee: each figure is a FIXED-WIDTH slot
+   (not fixed-height) and the image scales to that width keeping its own
+   ratio, so heights differ naturally between mixed-format photos ============ */
+.hiw-gallery{overflow:hidden;padding:0 .8rem 8rem}
 @media (min-width:1024px){.hiw-gallery{padding:0 .75vw 6.25vw}}
-.hiw-gallery__row{display:flex;gap:1.2rem;height:26rem}
-@media (min-width:1024px){.hiw-gallery__row{gap:1vw;height:24vw}}
-.hiw-gallery__item{flex:0 0 auto;height:100%}
-.hiw-gallery__item img{display:block;height:100%;object-fit:cover;width:auto}
+.hiw-gallery__track{animation:hiw-marquee 32s linear infinite;display:flex;width:fit-content}
+@media (prefers-reduced-motion:reduce){.hiw-gallery__track{animation:none}}
+.hiw-gallery__item{flex:0 0 auto;padding:0 .5rem;width:31rem}
+@media (min-width:1024px){.hiw-gallery__item{padding:0 .3125vw;width:32.375vw}}
+.hiw-gallery__item img{display:block;height:auto;width:100%}
+@keyframes hiw-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ============ 05. TERMS — collapsed accordion, opens via + (reuses .hiw-step__icon) ============ */
 .hiw-terms{border-top:.1rem solid rgba(28,28,28,.15);padding-top:6rem;padding-bottom:6rem}
@@ -373,13 +379,19 @@ a{color:inherit}
   </div>
 </section>
 
-<!-- GALLERY (placeholder photos, mixed formats) -->
+<!-- GALLERY — infinite marquee (placeholder photos, mixed formats) -->
 <section class="hiw-gallery reveal">
-  <div class="hiw-gallery__row">
+  <div class="hiw-gallery__track">
     <figure class="hiw-gallery__item"><img src="images/intro-01.jpg" alt=""></figure>
-    <figure class="hiw-gallery__item"><img src="images/service-01.jpg" alt=""></figure>
     <figure class="hiw-gallery__item"><img src="images/warm-3.jpg" alt=""></figure>
+    <figure class="hiw-gallery__item"><img src="images/service-01.jpg" alt=""></figure>
     <figure class="hiw-gallery__item"><img src="images/colorful-1.jpg" alt=""></figure>
+    <figure class="hiw-gallery__item"><img src="images/intro-04.jpg" alt=""></figure>
+    <figure class="hiw-gallery__item" aria-hidden="true"><img src="images/intro-01.jpg" alt=""></figure>
+    <figure class="hiw-gallery__item" aria-hidden="true"><img src="images/warm-3.jpg" alt=""></figure>
+    <figure class="hiw-gallery__item" aria-hidden="true"><img src="images/service-01.jpg" alt=""></figure>
+    <figure class="hiw-gallery__item" aria-hidden="true"><img src="images/colorful-1.jpg" alt=""></figure>
+    <figure class="hiw-gallery__item" aria-hidden="true"><img src="images/intro-04.jpg" alt=""></figure>
   </div>
 </section>
 
@@ -502,11 +514,21 @@ a{color:inherit}
   var current = 0;
   function goTo(idx){
     current = idx;
-    items.forEach(function(item, i){ item.classList.toggle('is-active', i === idx); });
+    items.forEach(function(item, i){
+      item.classList.toggle('is-active', i === idx);
+      if(i === idx){
+        item.classList.remove('is-shown');
+        void item.offsetWidth;
+        item.classList.add('is-shown');
+      } else {
+        item.classList.remove('is-shown');
+      }
+    });
     dots.forEach(function(d, i){ d.classList.toggle('is-active', i === idx); });
     var step = items[0].getBoundingClientRect().width;
     track.style.transform = 'translateX(-' + (idx * step) + 'px)';
   }
+  items[0].classList.add('is-shown');
   dots.forEach(function(dot){
     dot.addEventListener('click', function(){
       goTo(parseInt(dot.getAttribute('data-goto'), 10));
