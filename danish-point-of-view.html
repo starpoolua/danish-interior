@@ -29,6 +29,17 @@ a{color:inherit}
 @media (min-width:1024px){.dpov-toggle__icon{height:1vw;margin-right:.4375vw;width:1vw}}
 .dpov-toggle.is-open .dpov-toggle__icon{transform:rotate(45deg)}
 .dpov-toggle__label{display:inline-block}
+/* menu-label hover roll — exact mechanic measured on shed.design's
+   .nav-toggle__label-wrapper: a duplicate label sits at top:120% via
+   ::after, and on hover both copies translateY(-120%) so the original
+   rolls up out of view while the duplicate rolls up into place */
+@media (hover:hover){
+  .dpov-toggle__label-wrapper{overflow:hidden;position:relative}
+  .dpov-toggle__label-wrapper::after{content:attr(data-label);left:0;pointer-events:none;position:absolute;top:120%;transition:transform .4s cubic-bezier(1,0,.65,.61);white-space:nowrap}
+  .dpov-toggle__label{display:flex;transition:transform .4s cubic-bezier(1,0,.65,.61)}
+  .dpov-toggle:hover .dpov-toggle__label,
+  .dpov-toggle:hover .dpov-toggle__label-wrapper::after{transform:translateY(-120%);transition-duration:.8s;transition-timing-function:cubic-bezier(.14,1,.34,1)}
+}
 
 /* fullscreen nav overlay, opened by the header toggle */
 .dpov-nav{align-items:center;background:#FBCBDA;display:flex;flex-direction:column;height:100vh;height:100dvh;justify-content:center;left:0;gap:2rem;opacity:0;pointer-events:none;position:fixed;top:0;transform:translateY(-4%);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1),visibility 0s .6s;visibility:hidden;width:100%;z-index:900}
@@ -229,7 +240,7 @@ a{color:inherit}
   <span class="pill dpov-header__pill">Danish Point of View</span>
   <button type="button" class="dpov-toggle" id="navToggle" aria-label="Відкрити навігацію" aria-expanded="false">
     <svg class="dpov-toggle__icon" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" stroke-width="1.2" d="M19 9.5H0M9.5 19V0"/></svg>
-    <span class="dpov-toggle__label" id="navToggleLabel">МЕНЮ</span>
+    <span class="dpov-toggle__label-wrapper" id="navToggleLabelWrap" data-label="МЕНЮ"><span class="dpov-toggle__label" id="navToggleLabel">МЕНЮ</span></span>
   </button>
 </header>
 
@@ -495,6 +506,7 @@ a{color:inherit}
 (function(){
   var toggle = document.getElementById('navToggle');
   var toggleLabel = document.getElementById('navToggleLabel');
+  var toggleLabelWrap = document.getElementById('navToggleLabelWrap');
   var nav = document.getElementById('dpovNav');
   if(!toggle || !nav) return;
   var open = false;
@@ -503,7 +515,9 @@ a{color:inherit}
     toggle.classList.toggle('is-open', open);
     nav.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggleLabel.textContent = open ? 'ЗАКРИТИ' : 'МЕНЮ';
+    var label = open ? 'ЗАКРИТИ' : 'МЕНЮ';
+    toggleLabel.textContent = label;
+    if(toggleLabelWrap) toggleLabelWrap.setAttribute('data-label', label);
     document.body.style.overflow = open ? 'hidden' : '';
   });
   nav.querySelectorAll('.dpov-nav__link').forEach(function(link){
