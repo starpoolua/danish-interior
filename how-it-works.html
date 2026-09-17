@@ -221,15 +221,15 @@ a{color:inherit}
 
 /* final footer-link — exact mechanic measured on shed.design's "See work":
    huge label + inline photo + arrow, all one flex row, whole thing clickable */
-.hiw-final-link{align-items:center;color:inherit;display:flex;flex-direction:column;margin-top:4rem;text-decoration:none}
-@media (min-width:1024px){.hiw-final-link{flex-direction:row;justify-content:center;margin-top:3vw}}
-.hiw-final-link__label{font-family:OwnersWeb,sans-serif;font-size:5rem;font-weight:600;letter-spacing:-.02em;line-height:.81;text-transform:uppercase}
-@media (min-width:1024px){.hiw-final-link__label{font-size:6.5vw}}
-.hiw-final-link__photo{aspect-ratio:238/145;margin:1.2rem 0;overflow:hidden;position:relative;width:22rem}
-@media (min-width:1024px){.hiw-final-link__photo{margin:0 0 0 1.5vw;width:9vw}}
+.hiw-final-link{align-items:flex-start;color:inherit;display:flex;flex-direction:column;margin-top:1.2rem;position:relative;text-align:left;text-decoration:none}
+@media (min-width:1024px){.hiw-final-link{align-items:baseline;flex-direction:row;margin-top:.75vw}}
+.hiw-final-link__label{font-family:OwnersWeb,sans-serif;font-size:4.2rem;font-weight:600;letter-spacing:-.02em;line-height:.9;text-transform:uppercase}
+@media (min-width:1024px){.hiw-final-link__label{font-size:6vw;white-space:nowrap}}
+.hiw-final-link__photo{aspect-ratio:149/91;margin-bottom:.6rem;order:-1;position:relative;width:38.2051vw}
+@media (min-width:1024px){.hiw-final-link__photo{aspect-ratio:238/145;margin-bottom:0;margin-left:1.25vw;order:0;width:14.875vw}}
 .hiw-final-link__photo img{display:block;height:100%;object-fit:cover;width:100%}
-.hiw-final-link__arrow{display:flex;height:4rem;width:4rem}
-@media (min-width:1024px){.hiw-final-link__arrow{height:5vw;margin-left:1.2vw;width:5vw}}
+.hiw-final-link__arrow{display:flex;height:3.2rem;margin-top:1.2rem;width:3.2rem}
+@media (min-width:1024px){.hiw-final-link__arrow{height:9.8125vw;margin-left:auto;margin-top:0;width:9.6875vw}}
 
 /* custom-link hover roll — exact mechanic measured on shed.design/services:
    words alternate direction, clone layer rolls in from the opposite side,
@@ -478,9 +478,8 @@ a{color:inherit}
 <!-- 06. FINAL CTA -->
 <section class="hiw-cta">
   <div class="hiw-cta__inner gutters">
-    <p class="hiw-cta__text reveal split-text">Покажіть нам свій простір — ми підкажемо, з чого почати.</p>
     <a href="index.html#request" class="hiw-final-link reveal" aria-label="Ready to start? — розповісти про свій простір">
-      <span class="hiw-final-link__label">READY TO START?</span>
+      <span class="hiw-final-link__label split-text">READY TO START?</span>
       <span class="hiw-final-link__photo"><img src="images/warm-1.jpg" alt=""></span>
       <span class="hiw-final-link__arrow"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 155 157"><path stroke="currentColor" stroke-width="3" d="M1.5 87.688v1.5h109.691l-48.798 48.797-1.064 1.064 1.068 1.061 13.046 12.954 1.06 1.054 1.058-1.057 73.5-73.5 1.06-1.061-1.06-1.06-73.5-73.5L76.5 2.878l-1.06 1.06-12.955 12.955-1.06 1.06 1.059 1.06 48.711 48.799H1.5v19.874Z"></path></svg></span>
     </a>
