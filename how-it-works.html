@@ -178,7 +178,7 @@ a{color:inherit}
 @keyframes hiw-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ============ 05. TERMS — collapsed accordion, opens via + (reuses .hiw-step__icon) ============ */
-.hiw-terms{border-top:.1rem solid rgba(28,28,28,.15);padding-top:6rem;padding-bottom:6rem}
+.hiw-terms{border-top:.1rem solid rgba(28,28,28,.15);border-bottom:.1rem solid rgba(28,28,28,.15);padding-top:6rem;padding-bottom:6rem}
 @media (min-width:1024px){.hiw-terms{padding-top:5vw;padding-bottom:5vw}}
 .hiw-terms__head{align-items:center;background:none;border:0;color:inherit;cursor:pointer;display:flex;gap:1.6rem;justify-content:space-between;width:100%}
 .hiw-terms__title{font-family:OwnersWeb,sans-serif;font-size:2.6rem;font-weight:600;letter-spacing:-.01em;text-transform:uppercase}
@@ -194,24 +194,8 @@ a{color:inherit}
 @media (min-width:1024px){.hiw-terms__item{border-bottom:0;border-right:.1rem solid rgba(28,28,28,.15);flex:1;padding:2vw}.hiw-terms__item:last-child{border-right:0}}
 .hiw-terms__item b{display:block;font-family:SequelWeb,sans-serif;font-size:1.5rem;font-weight:600;letter-spacing:.02em;margin-bottom:.8rem;text-transform:uppercase}
 @media (min-width:1024px){.hiw-terms__item b{font-size:1vw;margin-bottom:.6vw}}
-.hiw-terms__item span{color:rgba(28,28,28,.6);font-family:RecklessWeb,serif;font-size:2rem}
-@media (min-width:1024px){.hiw-terms__item span{font-size:1.4vw}}
-.hiw-terms__note{color:rgba(28,28,28,.55);font-size:1.4rem;margin-top:2rem;max-width:56rem}
-@media (min-width:1024px){.hiw-terms__note{font-size:.85vw;margin-top:1.4vw;max-width:40vw}}
-.hiw-terms__format{margin-top:5rem}
-@media (min-width:1024px){.hiw-terms__format{margin-top:4vw}}
-.hiw-terms__format h3{font-family:SequelWeb,sans-serif;font-size:1.4rem;font-weight:600;letter-spacing:.06em;margin-bottom:1.2rem;text-transform:uppercase}
-@media (min-width:1024px){.hiw-terms__format h3{font-size:.85vw;margin-bottom:.9vw}}
-.hiw-terms__format p{font-family:RecklessWeb,serif;font-size:1.8rem;line-height:1.4;max-width:48rem}
-@media (min-width:1024px){.hiw-terms__format p{font-size:1.3vw;max-width:36vw}}
-
-/* ============ 05. IMPORTANT ============ */
-.hiw-important{border-top:.1rem solid rgba(28,28,28,.15);padding-top:7rem;padding-bottom:8rem}
-@media (min-width:1024px){.hiw-important{padding-top:6vw;padding-bottom:7vw}}
-.hiw-important__lead{font-family:OwnersWeb,sans-serif;font-size:4rem;font-weight:600;letter-spacing:-.01em;line-height:1.05;margin-bottom:2.4rem;max-width:60rem;text-transform:uppercase}
-@media (min-width:1024px){.hiw-important__lead{font-size:3.6vw;margin-bottom:1.8vw;max-width:52vw}}
-.hiw-important__note{color:rgba(28,28,28,.55);font-family:SequelWeb,sans-serif;font-size:1.5rem;line-height:1.5;max-width:48rem}
-@media (min-width:1024px){.hiw-important__note{font-size:1vw;max-width:36vw}}
+.hiw-terms__item span{color:rgba(28,28,28,.6);display:block;font-family:SequelWeb,sans-serif;font-size:1.5rem;line-height:1.5}
+@media (min-width:1024px){.hiw-terms__item span{font-size:1vw;max-width:34vw}}
 
 /* ============ 06. FINAL CTA ============ */
 .hiw-cta{color:#1c1c1c;padding-top:8rem;padding-bottom:8rem;text-align:center}
@@ -256,8 +240,8 @@ a{color:inherit}
 .header-sticky{align-items:center;background:#1c1c1c;border-radius:1.3rem;color:#FFFBEF;display:flex;justify-content:space-between;left:.8rem;padding:1rem;position:fixed;right:.8rem;top:.8rem;transform:translateY(calc(-100% - .8rem));transition:transform .8s cubic-bezier(.14,1,.34,1);z-index:1000}
 @media (min-width:1024px){.header-sticky{border-radius:.8125vw;left:.75vw;padding:.625vw .75vw;right:.75vw;top:.75vw}}
 .header-sticky.is-visible{transform:translateY(0)}
-.header-sticky__logo{color:inherit;display:inline-flex;height:1.6rem;text-decoration:none;width:auto}
-@media (min-width:1024px){.header-sticky__logo{height:1.25vw}}
+.header-sticky__logo{color:inherit;display:inline-flex;height:2.2rem;text-decoration:none;width:auto}
+@media (min-width:1024px){.header-sticky__logo{height:1.75vw}}
 .header-sticky__logo svg{display:block;height:100%;width:auto}
 .header-sticky__toggle{align-items:center;background:none;border:0;color:inherit;cursor:pointer;display:flex;font-family:SequelWeb,sans-serif;font-size:1.6rem;font-weight:500;letter-spacing:.01em;line-height:.8;text-transform:uppercase}
 @media (min-width:1024px){.header-sticky__toggle{font-size:1.5vw}}
@@ -451,28 +435,15 @@ a{color:inherit}
 <!-- 05. TERMS (collapsed accordion, opens via +) -->
 <section class="hiw-terms gutters">
   <button type="button" class="hiw-terms__head reveal" id="hiwTermsHead" aria-expanded="false">
-    <h2 class="hiw-terms__title split-text">ТЕРМІНИ</h2>
+    <h2 class="hiw-terms__title split-text">ТЕРМІНИ ТА ВАЖЛИВО</h2>
     <span class="hiw-step__icon"><span></span><span></span></span>
   </button>
   <div class="hiw-terms__panel" id="hiwTermsPanel"><div class="hiw-terms__inner">
     <div class="hiw-terms__row">
-      <div class="hiw-terms__item"><b>Hygge Corner</b><span>5–7 робочих днів</span></div>
-      <div class="hiw-terms__item"><b>Room Reset</b><span>7–10 робочих днів</span></div>
-      <div class="hiw-terms__item"><b>Room Reset + Sourcing</b><span>10–14 робочих днів</span></div>
-    </div>
-    <p class="hiw-terms__note">Термін роботи починається після отримання всіх необхідних матеріалів, підписання договору та передоплати.</p>
-    <div class="hiw-terms__format">
-      <h3>Формат роботи</h3>
-      <p>Працюємо онлайн незалежно від міста.<br>Територіально — Ужгород. Для локальних проєктів можливий виїзд на об’єкт.</p>
+      <div class="hiw-terms__item"><b>Терміни</b><span>Перший варіант концепції — протягом X робочих днів після отримання матеріалів та передоплати. Термін фіналізації залежить від кількості погоджених змін.</span></div>
+      <div class="hiw-terms__item"><b>Формат послуги</b><span>DANISH INTERIOR створює візуальну концепцію інтер’єру. Послуга не включає технічні креслення, проєктування електрики чи сантехніки, будівельну документацію та авторський нагляд.</span></div>
     </div>
   </div></div>
-</section>
-
-<!-- 05. IMPORTANT -->
-<section class="hiw-important gutters">
-  <span class="section-tag reveal split-text">ВАЖЛИВО</span>
-  <p class="hiw-important__lead reveal split-text">DANISH INTERIOR створює візуальні концепції інтер’єру.</p>
-  <p class="hiw-important__note reveal split-text">Послуга не включає технічні креслення електрики та сантехніки, будівельну документацію або авторський нагляд.</p>
 </section>
 
 <!-- 06. FINAL CTA -->
