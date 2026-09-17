@@ -134,10 +134,14 @@ a{color:inherit}
 /* ============ TESTIMONIALS — quote size/weight/line-height and the round
    numbered nav dots measured directly on shed.design/services'
    .testimonial-item / .carousel-nav (colors swapped to our own palette) ============ */
-.hiw-quotes{border-top:.1rem solid rgba(28,28,28,.15);padding-bottom:8rem;padding-top:8rem;text-align:center}
+.hiw-quotes{border-top:.1rem solid rgba(28,28,28,.15);overflow:hidden;padding-bottom:8rem;padding-top:8rem;text-align:center}
 @media (min-width:1024px){.hiw-quotes{padding-bottom:6.25vw;padding-top:9vw}}
-.hiw-quotes__item{display:none}
-.hiw-quotes__item.is-active{display:block}
+.hiw-quotes__track{display:flex;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.hiw-quotes__item{flex:0 0 83.3333vw;opacity:.1;padding:0 1.6rem;transition:opacity .6s}
+@media (min-width:1024px){.hiw-quotes__item{flex:0 0 63.5vw;padding:0 2vw}}
+.hiw-quotes__item:first-child{margin-left:8.20513vw}
+@media (min-width:1024px){.hiw-quotes__item:first-child{margin-left:23.9375vw}}
+.hiw-quotes__item.is-active{opacity:1}
 .hiw-quotes__text{font-family:OwnersWeb,sans-serif;font-size:3rem;font-weight:600;letter-spacing:-.01em;line-height:.89;margin:0 auto;max-width:60rem;text-transform:uppercase}
 @media (min-width:1024px){.hiw-quotes__text{font-size:4.0625vw;max-width:52.125vw}}
 .hiw-quotes__author{color:rgba(28,28,28,.55);display:block;font-family:SequelWeb,sans-serif;font-size:1.6rem;font-style:normal;margin-top:1.5rem}
@@ -147,6 +151,15 @@ a{color:inherit}
 .hiw-quotes__dot{align-items:center;background:none;border:.1rem solid #1c1c1c;border-radius:50%;color:#1c1c1c;cursor:pointer;display:flex;font-family:SequelWeb,sans-serif;font-size:1.2rem;height:3.5rem;justify-content:center;transition:background-color .3s,color .3s;width:3.5rem}
 @media (min-width:1024px){.hiw-quotes__dot{font-size:.9vw;height:2.75vw;width:2.75vw}}
 .hiw-quotes__dot.is-active{background:#1c1c1c;border-color:transparent;color:#FFFBEF}
+
+/* ============ GALLERY — filmstrip row, each image keeps its own natural
+   aspect ratio at a fixed height (mixed formats, like shed.design's) ============ */
+.hiw-gallery{overflow-x:auto;padding:0 .8rem 8rem}
+@media (min-width:1024px){.hiw-gallery{padding:0 .75vw 6.25vw}}
+.hiw-gallery__row{display:flex;gap:1.2rem;height:26rem}
+@media (min-width:1024px){.hiw-gallery__row{gap:1vw;height:24vw}}
+.hiw-gallery__item{flex:0 0 auto;height:100%}
+.hiw-gallery__item img{display:block;height:100%;object-fit:cover;width:auto}
 
 /* ============ 05. TERMS — collapsed accordion, opens via + (reuses .hiw-step__icon) ============ */
 .hiw-terms{border-top:.1rem solid rgba(28,28,28,.15);padding-top:6rem;padding-bottom:6rem}
@@ -333,8 +346,8 @@ a{color:inherit}
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="hiw-quotes gutters reveal">
-  <div class="hiw-quotes__track">
+<section class="hiw-quotes reveal">
+  <div class="hiw-quotes__track" id="hiwQuotesTrack">
     <blockquote class="hiw-quotes__item is-active" data-quote="0">
       <p class="hiw-quotes__text split-text">«Світло й музика повністю змінюють те, як ми відчуваємо кімнату»</p>
       <cite class="hiw-quotes__author">— Fritz Hansen</cite>
@@ -357,6 +370,16 @@ a{color:inherit}
     <button type="button" class="hiw-quotes__dot" data-goto="1">02</button>
     <button type="button" class="hiw-quotes__dot" data-goto="2">03</button>
     <button type="button" class="hiw-quotes__dot" data-goto="3">04</button>
+  </div>
+</section>
+
+<!-- GALLERY (placeholder photos, mixed formats) -->
+<section class="hiw-gallery reveal">
+  <div class="hiw-gallery__row">
+    <figure class="hiw-gallery__item"><img src="images/intro-01.jpg" alt=""></figure>
+    <figure class="hiw-gallery__item"><img src="images/service-01.jpg" alt=""></figure>
+    <figure class="hiw-gallery__item"><img src="images/warm-3.jpg" alt=""></figure>
+    <figure class="hiw-gallery__item"><img src="images/colorful-1.jpg" alt=""></figure>
   </div>
 </section>
 
@@ -468,18 +491,28 @@ a{color:inherit}
   });
 })();
 
-/* testimonials — click a numbered dot to switch quote */
+/* testimonials — horizontal peek carousel: active quote in view, next one
+   peeking at low opacity on the right, matching shed.design/services'
+   .testimonial-item track mechanic */
 (function(){
   var items = document.querySelectorAll('.hiw-quotes__item');
   var dots = document.querySelectorAll('.hiw-quotes__dot');
-  if(!items.length) return;
+  var track = document.getElementById('hiwQuotesTrack');
+  if(!items.length || !track) return;
+  var current = 0;
+  function goTo(idx){
+    current = idx;
+    items.forEach(function(item, i){ item.classList.toggle('is-active', i === idx); });
+    dots.forEach(function(d, i){ d.classList.toggle('is-active', i === idx); });
+    var step = items[0].getBoundingClientRect().width;
+    track.style.transform = 'translateX(-' + (idx * step) + 'px)';
+  }
   dots.forEach(function(dot){
     dot.addEventListener('click', function(){
-      var idx = parseInt(dot.getAttribute('data-goto'), 10);
-      items.forEach(function(item, i){ item.classList.toggle('is-active', i === idx); });
-      dots.forEach(function(d, i){ d.classList.toggle('is-active', i === idx); });
+      goTo(parseInt(dot.getAttribute('data-goto'), 10));
     });
   });
+  window.addEventListener('resize', function(){ goTo(current); });
 })();
 
 /* terms accordion — single collapsible section, closed by default */
