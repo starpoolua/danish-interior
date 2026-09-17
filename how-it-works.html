@@ -131,6 +131,23 @@ a{color:inherit}
 .hiw-why__copy{font-family:SequelWeb,sans-serif;font-size:2.7rem;font-weight:500;letter-spacing:-.02em;line-height:1;margin-top:10rem;max-width:66rem}
 @media (min-width:1024px){.hiw-why__copy{font-size:3.75vw;margin-top:11.25vw;max-width:90.0625vw}}
 
+/* ============ TESTIMONIALS — quote size/weight/line-height and the round
+   numbered nav dots measured directly on shed.design/services'
+   .testimonial-item / .carousel-nav (colors swapped to our own palette) ============ */
+.hiw-quotes{border-top:.1rem solid rgba(28,28,28,.15);padding-bottom:8rem;padding-top:8rem;text-align:center}
+@media (min-width:1024px){.hiw-quotes{padding-bottom:6.25vw;padding-top:9vw}}
+.hiw-quotes__item{display:none}
+.hiw-quotes__item.is-active{display:block}
+.hiw-quotes__text{font-family:OwnersWeb,sans-serif;font-size:3rem;font-weight:600;letter-spacing:-.01em;line-height:.89;margin:0 auto;max-width:60rem;text-transform:uppercase}
+@media (min-width:1024px){.hiw-quotes__text{font-size:4.0625vw;max-width:52.125vw}}
+.hiw-quotes__author{color:rgba(28,28,28,.55);display:block;font-family:SequelWeb,sans-serif;font-size:1.6rem;font-style:normal;margin-top:1.5rem}
+@media (min-width:1024px){.hiw-quotes__author{margin-top:1.6875vw}}
+.hiw-quotes__nav{display:flex;gap:.8rem;justify-content:center;margin-top:4rem}
+@media (min-width:1024px){.hiw-quotes__nav{gap:.6vw;margin-top:3vw}}
+.hiw-quotes__dot{align-items:center;background:none;border:.1rem solid #1c1c1c;border-radius:50%;color:#1c1c1c;cursor:pointer;display:flex;font-family:SequelWeb,sans-serif;font-size:1.2rem;height:3.5rem;justify-content:center;transition:background-color .3s,color .3s;width:3.5rem}
+@media (min-width:1024px){.hiw-quotes__dot{font-size:.9vw;height:2.75vw;width:2.75vw}}
+.hiw-quotes__dot.is-active{background:#1c1c1c;border-color:transparent;color:#FFFBEF}
+
 /* ============ 05. TERMS — collapsed accordion, opens via + (reuses .hiw-step__icon) ============ */
 .hiw-terms{border-top:.1rem solid rgba(28,28,28,.15);padding-top:6rem;padding-bottom:6rem}
 @media (min-width:1024px){.hiw-terms{padding-top:5vw;padding-bottom:5vw}}
@@ -315,6 +332,34 @@ a{color:inherit}
   <p class="hiw-why__copy reveal split-text">Ми допомагаємо побачити, чого бракує простору — ще до нових покупок. Спочатку бачимо кімнату цілісно, визначаємо, що справді варто змінити, і поєднуємо світло, колір, меблі та деталі в одну систему. Ви бачите майбутній простір ще до того, як починаєте його реалізовувати.</p>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="hiw-quotes gutters reveal">
+  <div class="hiw-quotes__track">
+    <blockquote class="hiw-quotes__item is-active" data-quote="0">
+      <p class="hiw-quotes__text split-text">Світло й музика повністю змінюють те, як ми відчуваємо кімнату</p>
+      <cite class="hiw-quotes__author">— Fritz Hansen</cite>
+    </blockquote>
+    <blockquote class="hiw-quotes__item" data-quote="1">
+      <p class="hiw-quotes__text split-text">Данське hygge — це не стиль інтер’єру, а спосіб створювати атмосферу: світлом, теплом, та маленькими домашніми ритуалами.</p>
+      <cite class="hiw-quotes__author">— Nanna Ditzel</cite>
+    </blockquote>
+    <blockquote class="hiw-quotes__item" data-quote="2">
+      <p class="hiw-quotes__text split-text">«Моя мета — створювати речі для людей, ставити людину в центр, а не пристосовувати її до предметів.»</p>
+      <cite class="hiw-quotes__author">— Børge Mogensen</cite>
+    </blockquote>
+    <blockquote class="hiw-quotes__item" data-quote="3">
+      <p class="hiw-quotes__text split-text">Hygge — це маленькі моменти, які неможливо купити: особливе у звичайному дні.</p>
+      <cite class="hiw-quotes__author">— Marie Tourell Søderberg</cite>
+    </blockquote>
+  </div>
+  <div class="hiw-quotes__nav">
+    <button type="button" class="hiw-quotes__dot is-active" data-goto="0">01</button>
+    <button type="button" class="hiw-quotes__dot" data-goto="1">02</button>
+    <button type="button" class="hiw-quotes__dot" data-goto="2">03</button>
+    <button type="button" class="hiw-quotes__dot" data-goto="3">04</button>
+  </div>
+</section>
+
 <!-- 05. TERMS (collapsed accordion, opens via +) -->
 <section class="hiw-terms gutters">
   <button type="button" class="hiw-terms__head reveal" id="hiwTermsHead" aria-expanded="false">
@@ -419,6 +464,20 @@ a{color:inherit}
     document.querySelectorAll('.hiw-step--open').forEach(function(step){
       var panel = step.querySelector('.hiw-step__panel');
       panel.style.height = panel.firstElementChild.getBoundingClientRect().height + 'px';
+    });
+  });
+})();
+
+/* testimonials — click a numbered dot to switch quote */
+(function(){
+  var items = document.querySelectorAll('.hiw-quotes__item');
+  var dots = document.querySelectorAll('.hiw-quotes__dot');
+  if(!items.length) return;
+  dots.forEach(function(dot){
+    dot.addEventListener('click', function(){
+      var idx = parseInt(dot.getAttribute('data-goto'), 10);
+      items.forEach(function(item, i){ item.classList.toggle('is-active', i === idx); });
+      dots.forEach(function(d, i){ d.classList.toggle('is-active', i === idx); });
     });
   });
 })();
