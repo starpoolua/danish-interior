@@ -19,14 +19,14 @@ a{color:inherit}
 /* header — logo / centered pill / + menu toggle, matching the rest of the site */
 .dpov-header{align-items:center;background:#fff;color:#1c1c1c;display:flex;height:5.6rem;padding:0 .8rem;position:relative;z-index:999}
 @media (min-width:1024px){.dpov-header{height:4.5vw;padding:0 .75vw}}
-.dpov-logo{color:inherit;display:inline-flex;font-family:OwnersWeb,sans-serif;font-size:2.5rem;font-weight:600;letter-spacing:-.03em;line-height:1;text-decoration:none}
-@media (min-width:1024px){.dpov-logo{font-size:3.2vw}}
+.dpov-logo{color:inherit;display:inline-flex;font-family:OwnersWeb,sans-serif;font-size:2rem;font-weight:600;letter-spacing:-.03em;line-height:1;text-decoration:none}
+@media (min-width:1024px){.dpov-logo{font-size:2vw}}
 .pill.dpov-header__pill{display:none}
 @media (min-width:1024px){.pill.dpov-header__pill{display:inline-block;font-size:.75vw;left:50%;padding:.4vw 1vw;position:absolute;top:50%;transform:translate(-50%,-50%)}}
-.dpov-toggle{align-items:center;background:none;border:0;color:inherit;cursor:pointer;display:flex;font-family:SequelWeb,sans-serif;font-size:1.25rem;font-weight:700;letter-spacing:.01em;position:absolute;right:.8rem;text-transform:uppercase;top:50%;transform:translateY(-50%)}
-@media (min-width:1024px){.dpov-toggle{font-size:1.75vw;right:.75vw}}
-.dpov-toggle__icon{height:.9375rem;margin-right:.3125rem;transition:transform .5s cubic-bezier(.16,1,.3,1);width:.9375rem}
-@media (min-width:1024px){.dpov-toggle__icon{height:1.1875vw;margin-right:.4375vw;width:1.1875vw}}
+.dpov-toggle{align-items:center;background:none;border:0;color:inherit;cursor:pointer;display:flex;font-family:SequelWeb,sans-serif;font-size:1rem;font-weight:700;letter-spacing:.01em;position:absolute;right:.8rem;text-transform:uppercase;top:50%;transform:translateY(-50%)}
+@media (min-width:1024px){.dpov-toggle{font-size:1.5vw;right:.75vw}}
+.dpov-toggle__icon{height:.625rem;margin-right:.3125rem;transition:transform .5s cubic-bezier(.16,1,.3,1);width:.625rem}
+@media (min-width:1024px){.dpov-toggle__icon{height:1vw;margin-right:.4375vw;width:1vw}}
 .dpov-toggle.is-open .dpov-toggle__icon{transform:rotate(45deg)}
 .dpov-toggle__label{display:inline-block}
 
@@ -234,7 +234,7 @@ a{color:inherit}
    .header-sticky appears ONLY on scroll-up (past the initial header),
    hides on scroll-down; slides in/out via translateY, same easing used
    throughout this project ============ */
-.header-sticky{align-items:center;background:#1c1c1c;border-radius:1.3rem;color:#FFFBEF;display:flex;justify-content:space-between;left:.8rem;padding:1rem;position:fixed;right:.8rem;top:.8rem;transform:translateY(calc(-100% - .8rem));transition:transform .8s cubic-bezier(.14,1,.34,1);z-index:1000}
+.header-sticky{align-items:center;background:#1c1c1c;border-radius:1.3rem;color:#fff;display:flex;justify-content:space-between;left:.8rem;padding:1rem;position:fixed;right:.8rem;top:.8rem;transform:translateY(calc(-100% - .8rem));transition:transform .8s cubic-bezier(.14,1,.34,1);z-index:1000}
 @media (min-width:1024px){.header-sticky{border-radius:.8125vw;left:.75vw;padding:.625vw .75vw;right:.75vw;top:.75vw}}
 .header-sticky.is-visible{transform:translateY(0)}
 .header-sticky__logo{color:inherit;display:inline-flex;font-family:OwnersWeb,sans-serif;font-size:2rem;font-weight:600;letter-spacing:-.03em;line-height:1;text-decoration:none}
