@@ -159,6 +159,14 @@ a{color:inherit}
 .bedding__link:hover{opacity:.6}
 .bedding__link--disabled{opacity:.35;pointer-events:none;cursor:not-allowed}
 .bedding__link--disabled:hover{opacity:.35}
+.dpov-choose{align-items:center;border-top:.1rem solid rgba(28,28,28,.15);display:flex;flex-wrap:wrap;gap:2rem;padding-bottom:6rem;padding-top:4rem}
+.dpov-choose__eyebrow{font-family:SequelWeb,sans-serif;font-size:1.3rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;width:100%}
+.dpov-choose__link{align-items:center;color:#1c1c1c;display:flex;gap:2rem;text-decoration:none}
+.dpov-choose__label{font-family:OwnersWeb,sans-serif;font-size:5.2rem;font-weight:600;letter-spacing:-.02em;line-height:.9;text-transform:uppercase}
+.dpov-choose__fig{aspect-ratio:149/91;margin:0;overflow:hidden;width:16rem}
+.dpov-choose__fig img{display:block;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1);width:100%}
+.dpov-choose__link:hover .dpov-choose__fig img{transform:scale(1.05)}
+@media (min-width:1024px){.dpov-choose{padding-bottom:5vw;padding-top:3vw}.dpov-choose__eyebrow{font-size:.85vw}.dpov-choose__label{font-size:6vw}.dpov-choose__fig{width:16vw}}
 .final__prices{border-top:.1rem solid rgba(28,28,28,.15);display:flex;flex-direction:column}
 @media (min-width:1024px){.final__prices{flex-direction:row}}
 .final__price{align-items:baseline;border-bottom:.1rem solid rgba(28,28,28,.15);display:flex;justify-content:space-between;font-family:SequelWeb,sans-serif;font-size:1.8rem;font-weight:500;padding:1.8rem 0;text-transform:uppercase}
@@ -324,6 +332,15 @@ a{color:inherit}
     <span class="bedding__tag">Objects</span>
   </div>
   <span class="bedding__link bedding__link--disabled reveal" aria-disabled="true">→</span>
+</section>
+
+<!-- 07. CHOOSE -->
+<section class="dpov-choose gutters reveal">
+  <p class="dpov-choose__eyebrow">Обрати стиль</p>
+  <a href="index.html#choose-style" class="dpov-choose__link">
+    <span class="dpov-choose__label">Choose</span>
+    <figure class="dpov-choose__fig"><img src="images/choose-style-full.jpg" alt=""></figure>
+  </a>
 </section>
 
 
