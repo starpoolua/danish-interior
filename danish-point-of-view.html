@@ -157,6 +157,8 @@ a{color:inherit}
 .bedding__link{border-bottom:.1rem solid #fff;display:inline-block;font-family:SequelWeb,sans-serif;font-size:1.6rem;font-weight:500;letter-spacing:.03em;margin-top:4rem;text-transform:uppercase;transition:opacity .3s}
 @media (min-width:1024px){.bedding__link{font-size:1.1vw;margin-top:3.5vw}}
 .bedding__link:hover{opacity:.6}
+.bedding__link--disabled{opacity:.35;pointer-events:none;cursor:not-allowed}
+.bedding__link--disabled:hover{opacity:.35}
 .final__prices{border-top:.1rem solid rgba(28,28,28,.15);display:flex;flex-direction:column}
 @media (min-width:1024px){.final__prices{flex-direction:row}}
 .final__price{align-items:baseline;border-bottom:.1rem solid rgba(28,28,28,.15);display:flex;justify-content:space-between;font-family:SequelWeb,sans-serif;font-size:1.8rem;font-weight:500;padding:1.8rem 0;text-transform:uppercase}
@@ -322,7 +324,7 @@ a{color:inherit}
     <span class="bedding__tag">Art</span>
     <span class="bedding__tag">Objects</span>
   </div>
-  <a href="index.html#selected-brands" class="bedding__link reveal">Selected Brands →</a>
+  <span class="bedding__link bedding__link--disabled reveal" aria-disabled="true">→</span>
 </section>
 
 
