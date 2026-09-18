@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How It Works — Danish Interior</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Archivo:wght@600&display=swap" rel="stylesheet">
 <style>
 @font-face{font-display:swap;font-family:OwnersWeb;font-style:normal;font-weight:600;src:url(fonts/Owners-Bold.woff) format("woff"),url(fonts/Owners-Bold.woff2) format("woff2")}
 @font-face{font-display:swap;font-family:SequelWeb;font-style:normal;font-weight:400;src:url(fonts/SequelSans-RomanHead.woff) format("woff"),url(fonts/SequelSans-RomanHead.woff2) format("woff2")}
@@ -90,12 +89,11 @@ a{color:inherit}
    font, weight, size, letter-spacing, line-height and margins taken from their CSS ============ */
 .hiw-intro{padding-top:0;padding-bottom:8rem;text-align:left}
 @media (min-width:1024px){.hiw-intro{padding-bottom:9vw}}
-.hiw-intro__title{margin-top:0}
-@media (min-width:1024px){}
-.hiw-intro .section-tag{display:inline-block;font-family:Inter,sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.02em;line-height:1;text-transform:uppercase;border:1px solid currentColor;border-radius:999px;padding:3px 7px;margin-bottom:0}
-.hiw-intro__lead{font-family:RecklessWeb,serif;font-size:clamp(22px,4vw,32px);font-weight:400;letter-spacing:-.015em;line-height:1.15;margin-top:48px;max-width:650px}
-
-.hiw-intro__cta{display:inline-block;font-family:Inter,sans-serif;font-size:15px;font-weight:600;letter-spacing:.02em;line-height:1;text-transform:uppercase;color:inherit;text-decoration:none;position:relative;padding-bottom:6px;margin-top:32px}.hiw-intro__cta::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor}
+.hiw-intro__title{margin-top:1.2rem}
+@media (min-width:1024px){.hiw-intro__title{margin-top:.75vw}}
+.hiw-intro .section-tag{display:block}
+.hiw-intro__lead{font-family:OwnersWeb,sans-serif;font-size:3rem;font-weight:600;letter-spacing:-.01em;line-height:1.15;margin-top:10rem;max-width:66rem}
+@media (min-width:1024px){.hiw-intro__lead{font-size:3.4vw;margin-top:10.5625vw;max-width:90.0625vw}}
 
 /* ============ 03. INTERACTIVE PROCESS ============ */
 .hiw-process{border-top:.1rem solid rgba(28,28,28,.15);padding-top:6rem;padding-bottom:6rem}
@@ -107,8 +105,8 @@ a{color:inherit}
 .hiw-step:last-child{border-bottom:.1rem solid rgba(28,28,28,.15)}
 .hiw-step__head{align-items:center;background:none;border:0;color:inherit;cursor:pointer;display:flex;justify-content:space-between;gap:1.6rem;padding:2.4rem 0;text-align:left;width:100%}
 @media (min-width:1024px){.hiw-step__head{gap:1.6vw;padding:1.6vw 0}}
-.hiw-step__word{font-family:Archivo,sans-serif;font-size:clamp(72px,9vw,145px);font-weight:600;letter-spacing:-.03em;line-height:.88;text-transform:uppercase}
-@media (min-width:1024px){}
+.hiw-step__word{font-family:OwnersWeb,sans-serif;font-size:5.6rem;font-weight:600;letter-spacing:-.02em;line-height:.86;text-transform:uppercase}
+@media (min-width:1024px){.hiw-step__word{font-size:5.6vw}}
 .hiw-step__icon{flex:0 0 auto;height:2.2rem;position:relative;width:2.2rem}
 @media (min-width:1024px){.hiw-step__icon{height:1.6vw;width:1.6vw}}
 .hiw-step__icon span{background:currentColor;left:50%;position:absolute;top:50%;transform:translate(-50%,-50%)}
@@ -314,7 +312,7 @@ a{color:inherit}
 <!-- 03. INTRO -->
 <section class="hiw-intro gutters">
   <div class="hiw-intro__title reveal"><span class="section-tag split-text">ЯК МИ ПРАЦЮЄМО</span></div>
-  <p class="hiw-intro__lead reveal split-text">Від першого фото вашого простору — до готової концепції. Крок за кроком, без зайвого.</p><a href="#hiwList" class="hiw-intro__cta reveal">Детальніше про процес →</a>
+  <p class="hiw-intro__lead reveal split-text">Від першого фото вашого простору до готової візуальної концепції. Ви надсилаєте фото та розповідаєте, що хочете змінити. Ми визначаємо напрямок, створюємо візуальну концепцію та разом уточнюємо деталі. Після погодження ви отримуєте фінальні візуалізації, а в пакеті із sourcing — список конкретних предметів для реалізації.</p>
 </section>
 
 <!-- 03. INTERACTIVE PROCESS -->
