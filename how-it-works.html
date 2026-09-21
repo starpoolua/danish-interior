@@ -199,12 +199,10 @@ a{color:inherit}
    copy instead of shed's real services ============ */
 .hiw-pricing{padding-top:6rem;padding-bottom:6rem}
 @media (min-width:1024px){.hiw-pricing{padding-top:5vw;padding-bottom:5vw}}
-.hiw-pricing .section-tag{background:#FBCBDA;border:.1rem solid #1c1c1c;border-radius:2rem;color:#1c1c1c;padding:.6rem 1.4rem}
-@media (min-width:1024px){.hiw-pricing .section-tag{border-width:.075vw;border-radius:1.5vw;padding:.4vw 1vw}}
-.hiw-pricing__title{font-family:OwnersWeb,sans-serif;font-size:4rem;font-weight:600;letter-spacing:-.01em;line-height:.9;margin-top:1.2rem;text-transform:uppercase}
-@media (min-width:1024px){.hiw-pricing__title{font-size:5vw;margin-top:1vw}}
-.hiw-pricing__lead{color:rgba(28,28,28,.6);font-family:SequelWeb,sans-serif;font-size:1.6rem;margin-top:1rem}
-@media (min-width:1024px){.hiw-pricing__lead{font-size:1.1vw;margin-top:.75vw}}
+.hiw-pricing__title{font-family:OwnersWeb,sans-serif;font-size:3.875rem;font-weight:600;letter-spacing:-.02em;line-height:.81;text-transform:uppercase}
+@media (min-width:1024px){.hiw-pricing__title{font-size:11.875vw}}
+.hiw-pricing__lead{color:rgba(28,28,28,.6);font-family:RecklessWeb,serif;font-size:1.125rem;letter-spacing:-.01em;line-height:1.2;margin-top:1rem}
+@media (min-width:1024px){.hiw-pricing__lead{font-size:1.625vw;line-height:1.25;margin-top:.75vw}}
 .hiw-pricing__list{display:flex;flex-direction:column;list-style:none;margin-top:4rem}
 @media (min-width:1024px){.hiw-pricing__list{display:grid;grid-template-columns:repeat(3,1fr);column-gap:3vw;margin-top:3.5vw}}
 .hiw-pricing__item{border-top:.1rem solid rgba(28,28,28,.15);display:flex;flex-direction:column;margin-top:2.4rem;padding-top:2.4rem;position:relative}
@@ -220,9 +218,9 @@ a{color:inherit}
 @media (min-width:1024px){.hiw-pricing__price{font-size:1.6vw}}
 .hiw-pricing__count{color:rgba(28,28,28,.5);font-family:SequelWeb,sans-serif;font-size:1.2rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase}
 @media (min-width:1024px){.hiw-pricing__count{font-size:.75vw}}
-.hiw-pricing__cta{background:#1c1c1c;border-radius:3rem;color:#FBCBDA;display:inline-flex;font-family:SequelWeb,sans-serif;font-size:1.4rem;font-weight:600;letter-spacing:.04em;margin-top:4rem;padding:1.4rem 2.6rem;text-decoration:none;text-transform:uppercase;transition:opacity .3s}
-.hiw-pricing__cta:hover{opacity:.75}
-@media (min-width:1024px){.hiw-pricing__cta{border-radius:2vw;font-size:.85vw;margin-top:3vw;padding:.9vw 1.8vw}}
+.hiw-pricing__cta{background:#fff;border:.1rem solid #1c1c1c;border-radius:3rem;color:#1c1c1c;display:inline-flex;font-family:SequelWeb,sans-serif;font-size:1.4rem;font-weight:600;letter-spacing:.04em;margin-top:4rem;padding:1.4rem 2.6rem;text-decoration:none;text-transform:uppercase;transition:opacity .3s}
+.hiw-pricing__cta:hover{opacity:.6}
+@media (min-width:1024px){.hiw-pricing__cta{border-radius:2vw;border-width:.075vw;font-size:.85vw;margin-top:3vw;padding:.9vw 1.8vw}}
 
 /* ============ 05. TERMS — collapsed accordion, opens via + (reuses .hiw-step__icon) ============ */
 .hiw-terms{border-top:.1rem solid rgba(28,28,28,.15);border-bottom:.1rem solid rgba(28,28,28,.15);padding-top:6rem;padding-bottom:6rem}
@@ -246,6 +244,8 @@ a{color:inherit}
 
 /* ============ 06. FINAL CTA ============ */
 .hiw-cta{color:#1c1c1c;padding-top:8rem;padding-bottom:8rem;text-align:center}
+.hiw-cta__hint{color:rgba(28,28,28,.6);font-family:SequelWeb,sans-serif;font-size:1.4rem;margin-bottom:1.5rem;text-align:left}
+@media (min-width:1024px){.hiw-cta__hint{font-size:.9vw;margin-bottom:1vw}}
 @media (min-width:1024px){.hiw-cta{padding-top:8vw;padding-bottom:8vw}}
 .hiw-cta__text{font-family:RecklessWeb,serif;font-size:1.8rem;margin:0 auto;max-width:44rem}
 @media (min-width:1024px){.hiw-cta__text{font-size:1.3vw;max-width:34vw}}
@@ -412,7 +412,6 @@ a{color:inherit}
 
 <!-- 04b. PRICING TEASER -->
 <section class="hiw-pricing gutters">
-  <span class="section-tag reveal split-text">ПАКЕТИ ТА ЦІНИ</span>
   <h2 class="hiw-pricing__title reveal split-text">PRICING</h2>
   <p class="hiw-pricing__lead reveal split-text">Оберіть формат — від однієї зони до повної концепції кімнати.</p>
   <ol class="hiw-pricing__list">
@@ -444,44 +443,18 @@ a{color:inherit}
   <a href="index.html#packages" class="hiw-pricing__cta">ПЕРЕГЛЯНУТИ ПАКЕТИ →</a>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="hiw-quotes reveal">
-  <div class="hiw-quotes__track" id="hiwQuotesTrack">
-    <blockquote class="hiw-quotes__item is-active" data-quote="0">
-      <div class="hiw-quotes__quote">
-        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Світло й музика повністю змінюють те, як ми відчуваємо кімнату»</p>
-        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Світло й музика повністю змінюють те, як ми відчуваємо кімнату»</p>
-      </div>
-      <cite class="hiw-quotes__author">— Fritz Hansen</cite>
-    </blockquote>
-    <blockquote class="hiw-quotes__item" data-quote="1">
-      <div class="hiw-quotes__quote">
-        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Hygge — це не стиль інтер’єру, а спосіб створювати атмосферу: світлом, теплом, та маленькими ритуалами.»</p>
-        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Hygge — це не стиль інтер’єру, а спосіб створювати атмосферу: світлом, теплом, та маленькими ритуалами.»</p>
-      </div>
-      <cite class="hiw-quotes__author">— Nanna Ditzel</cite>
-    </blockquote>
-    <blockquote class="hiw-quotes__item" data-quote="2">
-      <div class="hiw-quotes__quote">
-        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Моя мета — створювати речі для людей, ставити людину в центр, а не пристосовувати її до предметів.»</p>
-        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Моя мета — створювати речі для людей, ставити людину в центр, а не пристосовувати її до предметів.»</p>
-      </div>
-      <cite class="hiw-quotes__author">— Børge Mogensen</cite>
-    </blockquote>
-    <blockquote class="hiw-quotes__item" data-quote="3">
-      <div class="hiw-quotes__quote">
-        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Hygge — це маленькі моменти, які неможливо купити: особливе у звичайному дні.»</p>
-        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Hygge — це маленькі моменти, які неможливо купити: особливе у звичайному дні.»</p>
-      </div>
-      <cite class="hiw-quotes__author">— Marie Tourell Søderberg</cite>
-    </blockquote>
-  </div>
-  <div class="hiw-quotes__nav">
-    <button type="button" class="hiw-quotes__dot is-active" data-goto="0">01</button>
-    <button type="button" class="hiw-quotes__dot" data-goto="1">02</button>
-    <button type="button" class="hiw-quotes__dot" data-goto="2">03</button>
-    <button type="button" class="hiw-quotes__dot" data-goto="3">04</button>
-  </div>
+<!-- 05. TERMS (collapsed accordion, opens via +) -->
+<section class="hiw-terms gutters">
+  <button type="button" class="hiw-terms__head reveal" id="hiwTermsHead" aria-expanded="false">
+    <h2 class="hiw-terms__title split-text">ТЕРМІНИ & ВАЖЛИВО</h2>
+    <span class="hiw-step__icon"><span></span><span></span></span>
+  </button>
+  <div class="hiw-terms__panel" id="hiwTermsPanel"><div class="hiw-terms__inner">
+    <div class="hiw-terms__row">
+      <div class="hiw-terms__item"><b>Терміни</b><span>Перший варіант концепції — протягом X робочих днів після отримання матеріалів та передоплати. Термін фіналізації залежить від кількості погоджених змін.</span></div>
+      <div class="hiw-terms__item"><b>Формат послуги</b><span>DANISH INTERIOR створює візуальну концепцію інтер’єру. Послуга не включає технічні креслення, проєктування електрики чи сантехніки, будівельну документацію та авторський нагляд.</span></div>
+    </div>
+  </div></div>
 </section>
 
 <!-- GALLERY — infinite marquee (placeholder photos, mixed formats) -->
@@ -500,23 +473,10 @@ a{color:inherit}
   </div>
 </section>
 
-<!-- 05. TERMS (collapsed accordion, opens via +) -->
-<section class="hiw-terms gutters">
-  <button type="button" class="hiw-terms__head reveal" id="hiwTermsHead" aria-expanded="false">
-    <h2 class="hiw-terms__title split-text">ТЕРМІНИ & ВАЖЛИВО</h2>
-    <span class="hiw-step__icon"><span></span><span></span></span>
-  </button>
-  <div class="hiw-terms__panel" id="hiwTermsPanel"><div class="hiw-terms__inner">
-    <div class="hiw-terms__row">
-      <div class="hiw-terms__item"><b>Терміни</b><span>Перший варіант концепції — протягом X робочих днів після отримання матеріалів та передоплати. Термін фіналізації залежить від кількості погоджених змін.</span></div>
-      <div class="hiw-terms__item"><b>Формат послуги</b><span>DANISH INTERIOR створює візуальну концепцію інтер’єру. Послуга не включає технічні креслення, проєктування електрики чи сантехніки, будівельну документацію та авторський нагляд.</span></div>
-    </div>
-  </div></div>
-</section>
-
 <!-- 06. FINAL CTA -->
 <section class="hiw-cta">
   <div class="hiw-cta__inner gutters">
+    <p class="hiw-cta__hint reveal">Розкажіть про свій проект</p>
     <a href="index.html#request" class="hiw-final-link reveal" aria-label="Ready to start? — розповісти про свій простір">
       <span class="hiw-final-link__label split-text">TO START</span>
       <span class="hiw-final-link__photo"><img src="images/warm-1.jpg" alt=""></span>
