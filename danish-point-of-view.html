@@ -19,6 +19,17 @@ a{color:inherit}
 /* header — logo / centered pill / + menu toggle, matching shed.design's real header layout */
 .dpov-header{align-items:center;background:#fff;color:#1c1c1c;display:flex;height:5.6rem;padding:0 .8rem;position:sticky;top:0;z-index:999}
 @media (min-width:1024px){.dpov-header{height:4.5vw;padding:0 .75vw}}
+.header-sticky{align-items:center;background:#1c1c1c;border-radius:1.3rem;color:#fff;display:flex;justify-content:space-between;left:.8rem;padding:1rem;position:fixed;right:.8rem;top:.8rem;transform:translateY(calc(-100% - .8rem));transition:transform .8s cubic-bezier(.14,1,.34,1);z-index:1000}
+@media (min-width:1024px){.header-sticky{border-radius:.8125vw;left:.75vw;padding:.625vw .75vw;right:.75vw;top:.75vw}}
+.header-sticky.is-visible{transform:translateY(0)}
+.header-sticky__logo{color:inherit;display:inline-flex;font-family:OwnersWeb,sans-serif;font-size:1.25rem;font-weight:600;letter-spacing:-.03em;line-height:1;text-decoration:none}
+@media (min-width:1024px){.header-sticky__logo{font-size:1.25vw}}
+.header-sticky__title{background:none;border:0;color:#fff;cursor:pointer;display:none;font-family:SequelWeb,sans-serif;font-weight:500;left:50%;position:absolute;text-transform:uppercase;top:50%;transform:translate(-50%,-50%)}
+@media (min-width:1024px){.header-sticky__title{display:inline-block;font-size:.75vw}}
+.header-sticky__toggle{align-items:center;background:none;border:0;color:inherit;cursor:pointer;display:flex;font-family:SequelWeb,sans-serif;font-size:.857rem;font-weight:700;letter-spacing:.01em;line-height:.8;text-transform:uppercase}
+@media (min-width:1024px){.header-sticky__toggle{font-size:1.286vw}}
+.header-sticky__toggle-icon{height:.417rem;margin-right:.3125rem;width:.417rem}
+@media (min-width:1024px){.header-sticky__toggle-icon{height:.667vw;margin-right:.4375vw;width:.667vw}}
 .dpov-logo{color:inherit;display:inline-flex;font-family:OwnersWeb,sans-serif;font-size:2rem;font-weight:600;letter-spacing:-.03em;line-height:1;text-decoration:none}
 @media (min-width:1024px){.dpov-logo{font-size:2vw}}
 .pill.dpov-header__pill{display:none}
@@ -226,6 +237,14 @@ a{color:inherit}
     <span class="dpov-toggle__label-wrapper" id="navToggleLabelWrap" data-label="МЕНЮ"><span class="dpov-toggle__label" id="navToggleLabel">МЕНЮ</span></span>
   </button>
 </header>
+<div class="header-sticky" id="headerSticky">
+  <a href="index.html" class="header-sticky__logo" aria-label="Danish Interior">Danish.</a>
+  <button type="button" class="header-sticky__title" id="headerStickyTitle" aria-label="Нагору">ПОГЛЯД</button>
+  <button type="button" class="header-sticky__toggle" id="headerStickyToggle" aria-label="Відкрити навігацію">
+    <svg class="header-sticky__toggle-icon" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" stroke-width="1.2" d="M19 9.5H0M9.5 19V0"/></svg>
+    <span class="dpov-toggle__label-wrapper" data-label="МЕНЮ"><span class="dpov-toggle__label">МЕНЮ</span></span>
+  </button>
+</div>
 
 <nav class="dpov-nav" id="dpovNav">
   <a href="index.html#choose-style" class="dpov-nav__link">STYLES</a>
@@ -458,11 +477,12 @@ a{color:inherit}
   var toggle = document.getElementById('navToggle');
   var toggleLabel = document.getElementById('navToggleLabel');
   var toggleLabelWrap = document.getElementById('navToggleLabelWrap');
+  var stickyToggle = document.getElementById('headerStickyToggle');
   var nav = document.getElementById('dpovNav');
   if(!toggle || !nav) return;
   var open = false;
-  toggle.addEventListener('click', function(){
-    open = !open;
+  function setOpen(next){
+    open = next;
     toggle.classList.toggle('is-open', open);
     nav.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', String(open));
@@ -470,17 +490,45 @@ a{color:inherit}
     toggleLabel.textContent = label;
     if(toggleLabelWrap) toggleLabelWrap.setAttribute('data-label', label);
     document.body.style.overflow = open ? 'hidden' : '';
-  });
+  }
+  toggle.addEventListener('click', function(){ setOpen(!open); });
+  if(stickyToggle) stickyToggle.addEventListener('click', function(){ setOpen(!open); });
   nav.querySelectorAll('.dpov-nav__link').forEach(function(link){
-    link.addEventListener('click', function(){
-      open = false;
-      toggle.classList.remove('is-open');
-      nav.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      toggleLabel.textContent = 'МЕНЮ';
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', function(){ setOpen(false); });
   });
+})();
+
+/* sticky-capsule title — click to scroll back to top, same as shed.design's
+   "header-sticky__title" button */
+(function(){
+  var title = document.getElementById('headerStickyTitle');
+  if(!title) return;
+  title.addEventListener('click', function(){
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+
+/* sticky black capsule — exact mechanic measured on shed.design: hidden by
+   default, slides in on scroll UP (once past the initial header), slides
+   back out on scroll DOWN */
+(function(){
+  var capsule = document.getElementById('headerSticky');
+  var header = document.querySelector('.dpov-header');
+  if(!capsule || !header) return;
+  var lastY = window.scrollY;
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var y = window.scrollY;
+    var threshold = header.offsetHeight;
+    var scrollingUp = y < lastY;
+    var show = scrollingUp && y > threshold;
+    capsule.classList.toggle('is-visible', show);
+    lastY = y;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ ticking = true; requestAnimationFrame(update); }
+  }, {passive:true});
 })();
 </script>
 <script>
