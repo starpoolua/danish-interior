@@ -159,14 +159,36 @@ a{color:inherit}
 .bedding__link:hover{opacity:.6}
 .bedding__link--disabled{opacity:.35;pointer-events:none;cursor:not-allowed}
 .bedding__link--disabled:hover{opacity:.35}
+.hiw-quotes{border-top:.1rem solid rgba(28,28,28,.15);overflow:hidden;padding-bottom:8rem;padding-top:8rem;text-align:center}
+@media (min-width:1024px){.hiw-quotes{padding-bottom:6.25vw;padding-top:9vw}}
+.hiw-quotes__track{display:flex;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.hiw-quotes__item{flex:0 0 83.3333vw;padding:0 1.6rem}
+@media (min-width:1024px){.hiw-quotes__item{flex:0 0 63.5vw;padding:0 2vw}}
+.hiw-quotes__item:first-child{margin-left:8.20513vw}
+@media (min-width:1024px){.hiw-quotes__item:first-child{margin-left:23.9375vw}}
+.hiw-quotes__quote{position:relative}
+.hiw-quotes__text{font-family:OwnersWeb,sans-serif;font-size:3rem;font-weight:600;letter-spacing:-.01em;line-height:.89;margin:0 auto;max-width:60rem;text-transform:uppercase}
+@media (min-width:1024px){.hiw-quotes__text{font-size:4.0625vw;max-width:52.125vw}}
+.hiw-quotes__text--ghost{opacity:.12}
+.hiw-quotes__text--active{inset:0;position:absolute}
+.hiw-quotes__line-wrap{display:block;overflow:hidden}
+.hiw-quotes__line{display:block;transform:translateY(-105%);transition:transform .8s cubic-bezier(.14,1,.34,1)}
+.hiw-quotes__item.is-active .hiw-quotes__line{transform:translateY(0)}
+.hiw-quotes__author{color:rgba(28,28,28,.55);display:block;font-family:SequelWeb,sans-serif;font-size:1.6rem;font-style:normal;margin-top:1.5rem}
+@media (min-width:1024px){.hiw-quotes__author{margin-top:1.6875vw}}
+.hiw-quotes__nav{display:flex;gap:.8rem;justify-content:center;margin-top:4rem}
+@media (min-width:1024px){.hiw-quotes__nav{gap:.6vw;margin-top:3vw}}
+.hiw-quotes__dot{align-items:center;background:none;border:.1rem solid #1c1c1c;border-radius:50%;color:#1c1c1c;cursor:pointer;display:flex;font-family:SequelWeb,sans-serif;font-size:1.2rem;height:3.5rem;justify-content:center;transition:background-color .3s,color .3s;width:3.5rem}
+@media (min-width:1024px){.hiw-quotes__dot{font-size:.9vw;height:2.75vw;width:2.75vw}}
+.hiw-quotes__dot.is-active{background:#1c1c1c;border-color:transparent;color:#FFFBEF}
 .dpov-choose{align-items:center;border-top:.1rem solid rgba(28,28,28,.15);display:flex;flex-wrap:wrap;gap:2rem;padding-bottom:6rem;padding-top:4rem}
 .dpov-choose__eyebrow{font-family:SequelWeb,sans-serif;font-size:1.3rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;width:100%}
 .dpov-choose__link{align-items:center;color:#1c1c1c;display:flex;gap:2rem;text-decoration:none}
-.dpov-choose__label{font-family:OwnersWeb,sans-serif;font-size:5.2rem;font-weight:600;letter-spacing:-.02em;line-height:.9;text-transform:uppercase}
-.dpov-choose__fig{aspect-ratio:149/91;margin:0;overflow:hidden;width:16rem}
+.dpov-choose__label{font-family:OwnersWeb,sans-serif;font-size:5.625rem;font-weight:600;letter-spacing:-.02em;line-height:.81;text-transform:uppercase}
+.dpov-choose__fig{aspect-ratio:149/91;margin:0;overflow:hidden;width:20rem}
 .dpov-choose__fig img{display:block;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1);width:100%}
 .dpov-choose__link:hover .dpov-choose__fig img{transform:scale(1.05)}
-@media (min-width:1024px){.dpov-choose{padding-bottom:5vw;padding-top:3vw}.dpov-choose__eyebrow{font-size:.85vw}.dpov-choose__label{font-size:6vw}.dpov-choose__fig{width:16vw}}
+@media (min-width:1024px){.dpov-choose{padding-bottom:5vw;padding-top:3vw}.dpov-choose__eyebrow{font-size:.85vw}.dpov-choose__label{font-size:9.6875vw;letter-spacing:-.01em;line-height:.75}.dpov-choose__fig{width:14.875vw}}
 .final__prices{border-top:.1rem solid rgba(28,28,28,.15);display:flex;flex-direction:column}
 @media (min-width:1024px){.final__prices{flex-direction:row}}
 .final__price{align-items:baseline;border-bottom:.1rem solid rgba(28,28,28,.15);display:flex;justify-content:space-between;font-family:SequelWeb,sans-serif;font-size:1.8rem;font-weight:500;padding:1.8rem 0;text-transform:uppercase}
@@ -336,6 +358,46 @@ a{color:inherit}
   <span class="bedding__link bedding__link--disabled reveal" aria-disabled="true">→</span>
 </section>
 
+<!-- 06b. QUOTES -->
+<section class="hiw-quotes reveal">
+  <div class="hiw-quotes__track" id="hiwQuotesTrack">
+    <blockquote class="hiw-quotes__item is-active" data-quote="0">
+      <div class="hiw-quotes__quote">
+        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Світло й музика повністю змінюють те, як ми відчуваємо кімнату»</p>
+        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Світло й музика повністю змінюють те, як ми відчуваємо кімнату»</p>
+      </div>
+      <cite class="hiw-quotes__author">— Fritz Hansen</cite>
+    </blockquote>
+    <blockquote class="hiw-quotes__item" data-quote="1">
+      <div class="hiw-quotes__quote">
+        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Hygge — це не стиль інтер’єру, а спосіб створювати атмосферу: світлом, теплом, та маленькими ритуалами.»</p>
+        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Hygge — це не стиль інтер’єру, а спосіб створювати атмосферу: світлом, теплом, та маленькими ритуалами.»</p>
+      </div>
+      <cite class="hiw-quotes__author">— Nanna Ditzel</cite>
+    </blockquote>
+    <blockquote class="hiw-quotes__item" data-quote="2">
+      <div class="hiw-quotes__quote">
+        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Моя мета — створювати речі для людей, ставити людину в центр, а не пристосовувати її до предметів.»</p>
+        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Моя мета — створювати речі для людей, ставити людину в центр, а не пристосовувати її до предметів.»</p>
+      </div>
+      <cite class="hiw-quotes__author">— Børge Mogensen</cite>
+    </blockquote>
+    <blockquote class="hiw-quotes__item" data-quote="3">
+      <div class="hiw-quotes__quote">
+        <p class="hiw-quotes__text hiw-quotes__text--ghost">«Hygge — це маленькі моменти, які неможливо купити: особливе у звичайному дні.»</p>
+        <p class="hiw-quotes__text hiw-quotes__text--active" aria-hidden="true">«Hygge — це маленькі моменти, які неможливо купити: особливе у звичайному дні.»</p>
+      </div>
+      <cite class="hiw-quotes__author">— Marie Tourell Søderberg</cite>
+    </blockquote>
+  </div>
+  <div class="hiw-quotes__nav">
+    <button type="button" class="hiw-quotes__dot is-active" data-goto="0">01</button>
+    <button type="button" class="hiw-quotes__dot" data-goto="1">02</button>
+    <button type="button" class="hiw-quotes__dot" data-goto="2">03</button>
+    <button type="button" class="hiw-quotes__dot" data-goto="3">04</button>
+  </div>
+</section>
+
 <!-- 07. CHOOSE -->
 <section class="dpov-choose gutters reveal">
   <p class="dpov-choose__eyebrow">Обрати стиль</p>
@@ -417,6 +479,67 @@ a{color:inherit}
       document.body.style.overflow = '';
     });
   });
+})();
+</script>
+<script>
+(function(){
+  var items = document.querySelectorAll('.hiw-quotes__item');
+  var dots = document.querySelectorAll('.hiw-quotes__dot');
+  var track = document.getElementById('hiwQuotesTrack');
+  if(!items.length || !track) return;
+
+  function splitLines(el){
+    var words = el.textContent.trim().split(/\s+/);
+    var frag = document.createDocumentFragment();
+    var wordEls = [];
+    words.forEach(function(w, i){
+      var span = document.createElement('span');
+      span.style.display = 'inline-block';
+      span.textContent = w;
+      frag.appendChild(span);
+      wordEls.push(span);
+      if(i < words.length - 1) frag.appendChild(document.createTextNode(' '));
+    });
+    el.textContent = '';
+    el.appendChild(frag);
+    var lines = [];
+    var lastTop = null;
+    wordEls.forEach(function(w){
+      var top = w.offsetTop;
+      if(top !== lastTop){ lines.push([]); lastTop = top; }
+      lines[lines.length - 1].push(w.textContent);
+    });
+    el.innerHTML = '';
+    lines.forEach(function(lineWords, i){
+      var wrap = document.createElement('span');
+      wrap.className = 'hiw-quotes__line-wrap';
+      var inner = document.createElement('span');
+      inner.className = 'hiw-quotes__line';
+      inner.style.transitionDelay = (i * 0.08).toFixed(3) + 's';
+      inner.textContent = lineWords.join(' ');
+      wrap.appendChild(inner);
+      el.appendChild(wrap);
+    });
+  }
+  function initLines(){
+    document.querySelectorAll('.hiw-quotes__text--active').forEach(splitLines);
+  }
+  initLines();
+
+  var current = 0;
+  function goTo(idx){
+    current = idx;
+    items.forEach(function(item, i){ item.classList.toggle('is-active', i === idx); });
+    dots.forEach(function(d, i){ d.classList.toggle('is-active', i === idx); });
+    var step = items[0].getBoundingClientRect().width;
+    track.style.transform = 'translateX(-' + (idx * step) + 'px)';
+  }
+  dots.forEach(function(dot){
+    dot.addEventListener('click', function(){
+      goTo(parseInt(dot.getAttribute('data-goto'), 10));
+    });
+  });
+  window.addEventListener('resize', function(){ initLines(); goTo(current); });
 })();
 </script>
 </body>
