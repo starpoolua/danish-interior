@@ -192,6 +192,38 @@ a{color:inherit}
 .hiw-gallery__item img{display:block;height:auto;width:100%}
 @keyframes hiw-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+/* ============ 04b. PRICING TEASER — three-column grid structure (badge + excerpt
+   at top, list pinned to the column's bottom via margin-top:auto, thin 1px divider
+   between columns) measured directly on shed.design/services' .services-list,
+   recoloured to our own black/pink palette and filled with our own package
+   copy instead of shed's real services ============ */
+.hiw-pricing{padding-top:6rem;padding-bottom:6rem}
+@media (min-width:1024px){.hiw-pricing{padding-top:5vw;padding-bottom:5vw}}
+.hiw-pricing .section-tag{background:#FBCBDA;border:.1rem solid #1c1c1c;border-radius:2rem;color:#1c1c1c;padding:.6rem 1.4rem}
+@media (min-width:1024px){.hiw-pricing .section-tag{border-width:.075vw;border-radius:1.5vw;padding:.4vw 1vw}}
+.hiw-pricing__title{font-family:OwnersWeb,sans-serif;font-size:4rem;font-weight:600;letter-spacing:-.01em;line-height:.9;margin-top:1.2rem;text-transform:uppercase}
+@media (min-width:1024px){.hiw-pricing__title{font-size:5vw;margin-top:1vw}}
+.hiw-pricing__lead{color:rgba(28,28,28,.6);font-family:SequelWeb,sans-serif;font-size:1.6rem;margin-top:1rem}
+@media (min-width:1024px){.hiw-pricing__lead{font-size:1.1vw;margin-top:.75vw}}
+.hiw-pricing__list{display:flex;flex-direction:column;list-style:none;margin-top:4rem}
+@media (min-width:1024px){.hiw-pricing__list{display:grid;grid-template-columns:repeat(3,1fr);column-gap:3vw;margin-top:3.5vw}}
+.hiw-pricing__item{border-top:.1rem solid rgba(28,28,28,.15);display:flex;flex-direction:column;margin-top:2.4rem;padding-top:2.4rem;position:relative}
+.hiw-pricing__item:first-child{border-top:0;margin-top:0;padding-top:0}
+@media (min-width:1024px){.hiw-pricing__item{border-top:0;margin-top:0;padding-top:0}.hiw-pricing__item:not(:first-child):before{background:rgba(28,28,28,.15);bottom:0;content:"";left:-1.5vw;position:absolute;top:0;width:.075vw}}
+.hiw-pricing__name{color:#1c1c1c;font-family:SequelWeb,sans-serif;font-size:1.8rem;font-weight:600;letter-spacing:.02em;margin-bottom:.8rem;text-transform:uppercase}
+@media (min-width:1024px){.hiw-pricing__name{font-size:1.2vw;margin-bottom:.6vw}}
+.hiw-pricing__purpose{color:rgba(28,28,28,.6);font-family:SequelWeb,sans-serif;font-size:1.5rem;line-height:1.5}
+@media (min-width:1024px){.hiw-pricing__purpose{font-size:1vw;max-width:16vw}}
+.hiw-pricing__bottom{display:flex;flex-direction:column;gap:.4rem;margin-top:3rem}
+@media (min-width:1024px){.hiw-pricing__bottom{gap:.3vw;margin-top:auto;padding-top:2vw}}
+.hiw-pricing__price{color:#1c1c1c;font-family:OwnersWeb,sans-serif;font-size:2.2rem;font-weight:600}
+@media (min-width:1024px){.hiw-pricing__price{font-size:1.6vw}}
+.hiw-pricing__count{color:rgba(28,28,28,.5);font-family:SequelWeb,sans-serif;font-size:1.2rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase}
+@media (min-width:1024px){.hiw-pricing__count{font-size:.75vw}}
+.hiw-pricing__cta{background:#1c1c1c;border-radius:3rem;color:#FBCBDA;display:inline-flex;font-family:SequelWeb,sans-serif;font-size:1.4rem;font-weight:600;letter-spacing:.04em;margin-top:4rem;padding:1.4rem 2.6rem;text-decoration:none;text-transform:uppercase;transition:opacity .3s}
+.hiw-pricing__cta:hover{opacity:.75}
+@media (min-width:1024px){.hiw-pricing__cta{border-radius:2vw;font-size:.85vw;margin-top:3vw;padding:.9vw 1.8vw}}
+
 /* ============ 05. TERMS — collapsed accordion, opens via + (reuses .hiw-step__icon) ============ */
 .hiw-terms{border-top:.1rem solid rgba(28,28,28,.15);border-bottom:.1rem solid rgba(28,28,28,.15);padding-top:6rem;padding-bottom:6rem}
 @media (min-width:1024px){.hiw-terms{padding-top:5vw;padding-bottom:5vw}}
@@ -432,6 +464,40 @@ a{color:inherit}
     <figure class="hiw-gallery__item" aria-hidden="true"><img src="images/colorful-1.jpg" alt=""></figure>
     <figure class="hiw-gallery__item" aria-hidden="true"><img src="images/intro-04.jpg" alt=""></figure>
   </div>
+</section>
+
+<!-- 04b. PRICING TEASER -->
+<section class="hiw-pricing gutters">
+  <span class="section-tag reveal split-text">ПАКЕТИ ТА ЦІНИ</span>
+  <h2 class="hiw-pricing__title reveal split-text">PRICING</h2>
+  <p class="hiw-pricing__lead reveal split-text">Оберіть формат — від однієї зони до повної концепції кімнати.</p>
+  <ol class="hiw-pricing__list">
+    <li class="hiw-pricing__item">
+      <h3 class="hiw-pricing__name">HYGGE CORNER</h3>
+      <p class="hiw-pricing__purpose">Для однієї завершеної зони.</p>
+      <div class="hiw-pricing__bottom">
+        <span class="hiw-pricing__price">від $200</span>
+        <span class="hiw-pricing__count">2 ВІЗУАЛІЗАЦІЇ</span>
+      </div>
+    </li>
+    <li class="hiw-pricing__item">
+      <h3 class="hiw-pricing__name">ROOM RESET</h3>
+      <p class="hiw-pricing__purpose">Для повної концепції однієї кімнати.</p>
+      <div class="hiw-pricing__bottom">
+        <span class="hiw-pricing__price">$500</span>
+        <span class="hiw-pricing__count">3 ВІЗУАЛІЗАЦІЇ</span>
+      </div>
+    </li>
+    <li class="hiw-pricing__item">
+      <h3 class="hiw-pricing__name">ROOM RESET + SOURCING</h3>
+      <p class="hiw-pricing__purpose">Концепція кімнати + точний підбір речей для реалізації.</p>
+      <div class="hiw-pricing__bottom">
+        <span class="hiw-pricing__price">$800–900</span>
+        <span class="hiw-pricing__count">3 ВІЗУАЛІЗАЦІЇ + SOURCING</span>
+      </div>
+    </li>
+  </ol>
+  <a href="index.html#packages" class="hiw-pricing__cta">ПЕРЕГЛЯНУТИ ПАКЕТИ →</a>
 </section>
 
 <!-- 05. TERMS (collapsed accordion, opens via +) -->
