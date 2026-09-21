@@ -10,7 +10,7 @@
 @font-face{font-display:swap;font-family:SequelWeb;font-style:normal;font-weight:500;src:url(fonts/SequelSans-SemiBoldHead.woff) format("woff"),url(fonts/SequelSans-SemiBoldHead.woff2) format("woff2")}
 @font-face{font-display:swap;font-family:RecklessWeb;font-style:normal;font-weight:400;src:url(fonts/RecklessNeue-Book.woff) format("woff"),url(fonts/RecklessNeue-Book.woff2) format("woff2")}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#fff;color:#1c1c1c;font-family:SequelWeb,sans-serif;font-size:1.6rem;line-height:1.4;overflow-x:hidden}
+body{background:#fff;color:#1c1c1c;font-family:SequelWeb,sans-serif;font-size:1.6rem;line-height:1.4;overflow-x:hidden;overscroll-behavior-x:none}
 img{display:block;max-width:100%}
 a{color:inherit}
 .gutters{padding:0 .8rem}
@@ -44,9 +44,9 @@ a{color:inherit}
 }
 
 /* fullscreen nav overlay, opened by the header toggle */
-.dpov-nav{align-items:center;background:#FBCBDA;display:flex;flex-direction:column;height:100vh;height:100dvh;justify-content:center;left:0;gap:2rem;opacity:0;pointer-events:none;position:fixed;top:0;transform:translateY(-4%);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1),visibility 0s .6s;visibility:hidden;width:100%;z-index:900}
+.dpov-nav{align-items:center;background:#FBCBDA;bottom:0;display:flex;flex-direction:column;justify-content:center;left:0;gap:2rem;opacity:0;overflow-y:auto;pointer-events:none;position:fixed;right:0;top:0;transform:translateY(-4%);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1),visibility 0s .6s;visibility:hidden;z-index:900}
 @media (min-width:1024px){.dpov-nav{gap:1.2vw}}
-.dpov-nav.is-open{opacity:1;pointer-events:auto;transform:translateY(0);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);visibility:visible}
+.dpov-nav.is-open{opacity:1;pointer-events:auto;transform:translateY(0);transition:opacity .5s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1);visibility:visible}.dpov-nav__item{align-items:center;display:flex;flex-direction:column;gap:.5rem}.dpov-nav__hint{display:none}@media (hover:none){.dpov-nav{gap:1.1rem;padding-top:6rem;padding-bottom:2rem;overflow-y:auto;-webkit-overflow-scrolling:touch}.dpov-nav__hint{background:#1c1c1c;border-radius:2rem;color:#FBCBDA;display:inline-block;font-family:SequelWeb,sans-serif;font-size:1.1rem;font-weight:500;letter-spacing:.03em;padding:.4rem 1rem;text-transform:lowercase}}
 .dpov-nav__link{color:#1c1c1c;font-family:OwnersWeb,sans-serif;font-size:3.4rem;font-weight:600;text-decoration:none;text-transform:uppercase;transition:color .3s}
 @media (min-width:1024px){.dpov-nav__link{font-size:2.4vw}}
 .dpov-nav__link:hover{color:#FFFCAE}
@@ -325,11 +325,11 @@ a{color:inherit}
 
 
 <nav class="dpov-nav" id="dpovNav">
-  <a href="index.html#choose-style" class="dpov-nav__link">STYLES</a>
-  <a href="index.html#packages" class="dpov-nav__link">PRICING</a>
-  <a href="how-it-works.html" class="dpov-nav__link dpov-nav__link--active">HOW IT WORKS</a>
-  <a href="danish-point-of-view.html" class="dpov-nav__link">ABOUT</a>
-  <a href="contact.html" class="dpov-nav__link">CONTACT</a>
+  <span class="dpov-nav__item"><a href="index.html#choose-style" class="dpov-nav__link">STYLES</a><span class="dpov-nav__hint">обрати свій стиль</span></span>
+  <span class="dpov-nav__item"><a href="index.html#packages" class="dpov-nav__link">PRICING</a><span class="dpov-nav__hint">пакети та ціни</span></span>
+  <span class="dpov-nav__item"><a href="how-it-works.html" class="dpov-nav__link dpov-nav__link--active">HOW IT WORKS</a><span class="dpov-nav__hint">як ми працюємо</span></span>
+  <span class="dpov-nav__item"><a href="danish-point-of-view.html" class="dpov-nav__link">ABOUT</a><span class="dpov-nav__hint">наш данський погляд</span></span>
+  <span class="dpov-nav__item"><a href="contact.html" class="dpov-nav__link">CONTACT</a><span class="dpov-nav__hint">написати нам</span></span>
 </nav>
 
 <!-- 01. PAGE TITLE -->
