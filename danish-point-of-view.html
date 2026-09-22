@@ -539,6 +539,8 @@ a{color:inherit}
   if(!items.length || !track) return;
 
   function splitLines(el){
+    if(el.dataset.dcLinesSplit) return;
+    el.dataset.dcLinesSplit = '1';
     var words = el.textContent.trim().split(/\s+/);
     var frag = document.createDocumentFragment();
     var wordEls = [];
@@ -574,7 +576,11 @@ a{color:inherit}
   function initLines(){
     document.querySelectorAll('.hiw-quotes__text--active').forEach(splitLines);
   }
-  initLines();
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ requestAnimationFrame(initLines); });
+  } else {
+    initLines();
+  }
 
   var current = 0;
   function goTo(idx){
@@ -589,7 +595,7 @@ a{color:inherit}
       goTo(parseInt(dot.getAttribute('data-goto'), 10));
     });
   });
-  window.addEventListener('resize', function(){ initLines(); goTo(current); });
+  window.addEventListener('resize', function(){ goTo(current); });
 })();
 </script>
 </body>
