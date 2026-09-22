@@ -259,14 +259,14 @@ a{color:inherit}
    huge label + inline photo + arrow, all one flex row, whole thing clickable */
 .hiw-final-link{align-items:flex-start;color:inherit;display:flex;flex-direction:column;margin-top:1.2rem;position:relative;text-align:left;text-decoration:none}
 @media (min-width:1024px){.hiw-final-link{align-items:baseline;flex-direction:row;margin-top:.75vw}}
-.hiw-final-link__label{color:#FBCBDA;font-family:OwnersWeb,sans-serif;font-size:5.625rem;font-weight:600;letter-spacing:-.02em;line-height:.81;text-transform:uppercase}
+.hiw-final-link__label{color:#FBCBDA;font-family:OwnersWeb,sans-serif;font-size:clamp(2.8rem,15vw,5.625rem);font-weight:600;letter-spacing:-.02em;line-height:.9;overflow-wrap:break-word;text-transform:uppercase}
 @media (min-width:1024px){.hiw-final-link__label{font-size:12.9375vw;letter-spacing:-.01em;line-height:.75}}
 .hiw-final-link__photo{aspect-ratio:149/91;clip-path:inset(0 0 100%);margin-bottom:.6rem;order:-1;position:relative;transition:clip-path 1s cubic-bezier(.9,0,.1,1) .6s;width:38.2051vw}
 @media (min-width:1024px){.hiw-final-link__photo{aspect-ratio:238/145;margin-bottom:0;margin-left:1.25vw;order:0;width:14.875vw}}
 .hiw-final-link.is-visible .hiw-final-link__photo{clip-path:inset(0)}
 .hiw-final-link__photo img{display:block;height:100%;object-fit:cover;width:100%}
-.hiw-final-link__arrow{color:#FBCBDA;display:flex;height:4.0625rem;margin-top:1.2rem;width:4rem}
-@media (min-width:1024px){.hiw-final-link__arrow{height:9.8125vw;margin-left:auto;margin-top:0;width:9.6875vw}}
+.hiw-final-link__arrow{bottom:0;color:#FBCBDA;display:flex;height:4.0625rem;position:absolute;right:0;width:4rem}
+@media (min-width:1024px){.hiw-final-link__arrow{bottom:auto;height:9.8125vw;margin-left:auto;margin-top:0;position:static;right:auto;width:9.6875vw}}
 
 /* custom-link hover roll — exact mechanic measured on shed.design/services:
    words alternate direction, clone layer rolls in from the opposite side,
