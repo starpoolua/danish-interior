@@ -28,11 +28,17 @@ function reply(status, body, origin) {
   });
 }
 
+let lastError = '';
+
 async function telegram(env, method, fields) {
   const body = new FormData();
-  body.set('chat_id', env.CHAT_ID);
+  body.set('chat_id', String(env.CHAT_ID).trim());
   for (const [k, v] of Object.entries(fields)) body.set(k, v);
-  const res = await fetch(`https://api.telegram.org/bot${env.BOT_TOKEN}/${method}`, { method: 'POST', body });
+  const res = await fetch(`https://api.telegram.org/bot${env.BOT_TOKEN.trim()}/${method}`, { method: 'POST', body });
+  if (!res.ok) {
+    const j = await res.json().catch(() => ({}));
+    lastError = `${res.status} ${j.description || ''}`.trim();
+  }
   return res.ok;
 }
 
@@ -80,7 +86,7 @@ export default {
       parse_mode: 'HTML',
       disable_web_page_preview: 'true',
     });
-    if (!sent) return reply(502, { ok: false, error: 'telegram' }, origin);
+    if (!sent) return reply(502, { ok: false, error: 'telegram', detail: lastError }, origin);
 
     // Фото: JPEG/PNG як фото, решта (WebP/HEIC) як файл. Помилка одного фото не скасовує заявку.
     let failed = 0;

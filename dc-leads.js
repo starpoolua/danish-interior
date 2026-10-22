@@ -1,7 +1,7 @@
 /* Відправка заявок на Cloudflare Worker → Telegram-бот.
    Після деплою Worker вставте його адресу в DC_LEADS_ENDPOINT. Токен бота тут НЕ зберігається. */
 (function () {
-  var DC_LEADS_ENDPOINT = '';
+  var DC_LEADS_ENDPOINT = 'https://danish-leads.starpool-ua.workers.dev/';
   var TIMEOUT_MS = 60000;
   var ERR_TEXT = 'Не вдалося надіслати заявку. Спробуйте ще раз або напишіть нам у Telegram чи Viber.';
 
