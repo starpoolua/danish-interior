@@ -1,4 +1,7 @@
-<!DOCTYPE html><html  lang="en"><head><meta charset="utf-8">
+<!DOCTYPE html><html  lang="en"><head><meta charset="utf-8"><script>/* dc: block leftover third-party media from the original site */(function(){var A=['src','srcset','poster'];function kill(e){A.forEach(function(a){if(e.hasAttribute&&e.hasAttribute(a))e.removeAttribute(a)});if(e.tagName==='VIDEO'){try{e.pause();e.load()}catch(x){}}}
+function scan(n){if(n.nodeType!==1)return;var inMount=n.closest&&n.closest('.dc-notes-mount');if(inMount){kill(n);n.querySelectorAll('[src],[srcset],[poster]').forEach(kill);return}
+if(n.tagName==='VIDEO'&&/vimeo/.test(n.getAttribute('src')||''))kill(n);else if(n.querySelectorAll)n.querySelectorAll('video[src*="vimeo"]').forEach(kill)}
+new MutationObserver(function(ms){ms.forEach(function(m){if(m.type==='attributes')scan(m.target);else m.addedNodes.forEach(scan)})}).observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:['src']})})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Danish Interior | Home</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
